@@ -1,0 +1,4 @@
+	$host = "localhost";
+	$bd = "c1961260_baires";
+	$user = "c1961260_baires";
+	$password = "kanopi36FU";
