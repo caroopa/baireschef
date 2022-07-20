@@ -40,34 +40,15 @@
   </head>
   <body>
 
-    <div class="carrito" data-visible="false">
-      <div class="carrito-titulo">
-        <div class="cart-container">
-          <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
-        </div>
-        <p class="titulo">Carrito de compras</p>
-      </div>
-      <div class="container-carrito"></div>
-      <div class="total">
-        <p class="precio-total">Subtotal:</p>
-        <p class="totall"></p>
-      </div>
-      <form action="pagar.php" method="POST">
-        <input type="hidden" name="total" id="caja-total" value="" >
-        <input type="hidden" name="productos" id="caja-productos" value="">
-        <button class="pagar">FINALIZAR COMPRA</button>
-      </form>
-    </div>
-
-    <section id="productos">
+  <section id="productos">
       <nav>
         <ul>
           <li><a href="index.php"><img src="img/logo.png" alt="" class="logo" /></li></a>
           <div class="items-container">
             <li><a href="productos.php">Nuestros Platos</a></li>
+            <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <li>Dónde estamos</li>
             <div class="cart-container">
               <i class="cart fa-solid fa-cart-shopping"></i>
               <span id="checkout"></span>

@@ -23,47 +23,15 @@
   </head>
   <body>
 
-  <div class="carrito" data-visible="false">
-      <div class="carrito-titulo">
-        <div class="cart-container">
-          <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
-        </div>
-        <p class="titulo">Carrito de compras</p>
-      </div>
-      <?php if(!empty($_SESSION["CARRITO"])) { ?>
-      <?php foreach($_SESSION["CARRITO"] as $indice => $producto) {?>
-      <div class="item">
-        <img src="img/<?php echo $producto['IMAGEN']; ?>" alt="" class="img-carrito">
-        <div class="textos">
-          <p><?php echo $producto['NOMBRE']; ?></p>
-          <p class="cant">Cantidad: <?php echo $producto["CANT"]; ?></p>
-          <p class="guarnicion">Guarnición:</p>
-          <p class="guarnicion2">Papas a las finas hierbas</p>
-          <p class="precio"><?php echo $producto['PRECIO']*$producto['CANT']; ?>$</p>
-        </div>
-        <form action="" method="post">
-          <input type="hidden" name="nombre" value="<?php echo $producto["NOMBRE"]; ?>">
-          <button name="btn" type="submit" value="eliminar" class="btn-eliminar">x</button>
-        </form>
-      </div>
-      <?php } ?>
-      <div class="total">
-        <p class="precio-total">Subtotal:</p>
-        <p><?php echo $total; ?>$</p>
-      </div>
-      <?php } ?>
-      <button class="pagar">FINALIZAR COMPRA</button>
-    </div>
-
     <header>
       <nav>
         <ul>
           <li><a href="index.php"><img src="img/logo.png" alt="" class="logo" /></li></a>
           <div class="items-container">
             <li><a href="productos.php">Nuestros Platos</a></li>
+            <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <li>Dónde estamos</li>
             <div class="cart-container">
               <i class="fa-solid fa-cart-shopping cart"></i>
             </div>

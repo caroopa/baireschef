@@ -9,7 +9,7 @@ menu.addEventListener("click", () => {
 
 const primaryNav = document.querySelector(".carrito");
 const navToggle = document.querySelector(".cart");
-const cerrar = document.querySelector(".btn-cerrar");
+// const cerrar = document.querySelector(".btn-cerrar");
 
 navToggle.addEventListener("click", () => {
   const visibility = primaryNav.getAttribute("data-visible");
@@ -18,12 +18,12 @@ navToggle.addEventListener("click", () => {
   }
 });
 
-cerrar.addEventListener("click", () => {
-  const visibility = primaryNav.getAttribute("data-visible");
-  if (visibility === "true") {
-    primaryNav.setAttribute("data-visible", "false");
-  }
-});
+// cerrar.addEventListener("click", () => {
+//   const visibility = primaryNav.getAttribute("data-visible");
+//   if (visibility === "true") {
+//     primaryNav.setAttribute("data-visible", "false");
+//   }
+// });
 
 // **********************
 
@@ -39,36 +39,70 @@ function cerrarModal(i) {
 
 // ********************
 
-const select = document.querySelectorAll(".select-guarnicion");
+const precios = document.querySelectorAll(".precio");
+
 let guarniciones = [];
-select.forEach((element) => {
-  guarniciones.push(element.value);
-});
+function hola(valor, id, precio) {
+  if (valor == "Elije") {
+    precio = 0;
+  }
+
+  const objetoGuarniciones = {
+    id: id,
+    nombre: valor,
+    precio: precio,
+  };
+  guarniciones.push(objetoGuarniciones);
+
+  precioHTML = document.getElementById(id);
+  html = precioHTML.dataset.precio;
+  precioHTML.innerHTML = parseFloat(html) + parseFloat(precio);
+}
+
+// *******************
 
 let products = [];
 
 recuperarLocalStorage();
 
 function add(id, product, price, img) {
+  let guarnicion = "";
+  let guarnicionPrecio = "";
+  for (let i = 0; i < guarniciones.length; i++) {
+    if (guarniciones[i].id === id) {
+      guarnicion = guarniciones[i].nombre;
+      guarnicionPrecio = guarniciones[i].precio;
+    }
+  }
+
   for (let item in products) {
-    if (products[item].nombre === product) {
+    if (
+      products[item].nombre === product &&
+      products[item].guarnicion === guarnicion
+    ) {
       products[item].count++;
       sendLocalStorage();
       sumarCantidad();
+      sumar();
       pintarHTML();
       return;
     }
   }
+
   const nuevoObjeto = {
     id: id,
     nombre: product,
     precio: parseFloat(price),
     imagen: img,
     count: 1,
+    guarnicion: guarnicion,
+    guarnicionPrecio: parseFloat(guarnicionPrecio),
   };
+
   products.push(nuevoObjeto);
   sendLocalStorage();
   sumarCantidad();
+  sumar();
   pintarHTML();
 }
 
@@ -95,12 +129,15 @@ function recuperarLocalStorage() {
   });
 }
 
-navToggle.addEventListener("click", () => pintarHTML());
+window.addEventListener("load", () => pintarHTML());
 const containerCarrito = document.querySelector(".container-carrito");
 
 function pintarHTML() {
   recuperarLocalStorage();
-  sumar();
+  sumarTotal();
+
+  let totalProducto;
+  let guarnicion;
 
   containerCarrito.innerHTML = products
     .map((product) => {
@@ -111,8 +148,10 @@ function pintarHTML() {
           <p>${product.nombre}</p>
           <p>Cantidad: ${product.count}</p>
           <p class="guarnicion">Guarnición:</p>
-          <p class="guarnicion2">${guarniciones[product.id - 1]}</p>
-          <p class="precio">${product.precio * product.count}</p>
+          <p class="guarnicion2">${product.guarnicion}</p>
+          <p class="precio">${
+            (product.precio + product.guarnicionPrecio) * product.count
+          }</p>
         </div>
         <button class="btn-eliminar" id="${product.nombre}">X</button>
      </div>`;
@@ -138,21 +177,39 @@ function pintarHTML() {
       }
 
       localStorage.setItem("productos", JSON.stringify(products));
-      sumarCantidad();
       pintarHTML();
     });
   });
 }
 
-function sumar() {
+function sumarTotal() {
   let total = 0;
   let productos = "";
 
   for (let item in products) {
-    productos += products[item].nombre + "(" + products[item].count + ") ";
-    total += products[item].precio * products[item].count;
+    productos +=
+      products[item].nombre +
+      "con" +
+      products[item].guarnicion +
+      "(" +
+      products[item].count +
+      ") ";
+    total +=
+      (products[item].precio + products[item].guarnicionPrecio) *
+      products[item].count;
   }
   document.querySelector(".totall").innerHTML = total;
   document.getElementById("caja-total").value = total;
   document.getElementById("caja-productos").value = productos;
+}
+
+function sumar() {
+  let total = 0;
+
+  for (let item in products) {
+    total +=
+      (products[item].precio + products[item].guarnicionPrecio) *
+      products[item].count;
+  }
+  document.querySelector(".total-p").innerHTML = `Total: $${total}`;
 }
