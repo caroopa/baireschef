@@ -1,11 +1,14 @@
 <?php 
 	require "vendor/autoload.php";
-	include("config/domicilio.php");
 
   session_start();
-  if(isset($_POST["total"])) {
-    $_SESSION["sesion"]["total"] = $_POST["total"];
-    $_SESSION["sesion"]["productos"] = $_POST["productos"];
+  if(isset($_POST["btn-enviar-direccion"])) {
+    $nombre = $_POST["nombre"] ." ". $_POST["apellido"];
+    $direccion = $_POST["calle"] . " " . $_POST["numero"]. " ".$_POST["piso"]. " (".$_POST["localidad"] .")";
+    // $direccion .= " " . $_POST["partido"];
+
+    $_SESSION["sesion"]["nombre"] = $nombre;
+    $_SESSION["sesion"]["direccion"] = $direccion;
   }
 ?>
 
@@ -48,21 +51,6 @@
     />
   </head>
   <body>
-		
-    <div class="carrito" data-visible="false">
-      <div class="carrito-titulo">
-        <div class="cart-container">
-          <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
-        </div>
-        <p class="titulo">Carrito de compras</p>
-      </div>
-      <div class="container-carrito"></div>
-      <div class="total">
-        <p class="precio-total">Subtotal:</p>
-        <p class="totall"></p>
-      </div>
-      <button class="pagar"><a href="pagar.php">FINALIZAR COMPRA</a></button>
-    </div>
 
     <section id="productos">
       <nav>
@@ -80,31 +68,6 @@
           <i class="fa-solid fa-bars barra"></i>
         </ul>
       </nav>
-
-
-		<!-- <p>¿Desea recibir envío a domicilio? Tiene un recargo de 100$.</p>
-		<form action="pagar.php" method="post">
-			<input type="hidden" name="nombre" value="Envío a domicilio">
-			<input type="hidden" name="precio" value="100">
-			<input type="hidden" name="imagen" value="">
-			<button name="btn" value="agregar" type="submit" class="btn-agregar">Envío a domicilio</button> 
-		</form>
-		<form action="pagar.php" method="post">
-			<input type="hidden" name="nombre" value="Sin envío a domicilio">
-			<input type="hidden" name="precio" value="0">
-			<input type="hidden" name="imagen" value="">
-			<button name="btn" value="agregar" type="submit" class="btn-agregar">Sin envío a domicilio</button> 
-		</form>
-
-		<h1>Complete con su dirección</h1>
-		<form action="" method="post">
-			<input type="text" placeholder="Calle" name="calle">
-			<input type="text" placeholder="Número" name="numero">
-			<input type="text" placeholder="Piso y departamento (si es casa poner 'casa')." name="piso">
-			<input type="text" placeholder="Localidad" name="localidad">
-			<input type="text" placeholder="Entre Calles" name="calles">
-			<button type="submit" name="btn-enviar-direccion">Enviar</button>
-		</form> -->
 
     <div class="checkout-btn"></div>
 		
@@ -124,7 +87,6 @@
         label: "Mercado Pago",
       },
     });
-
   </script>
 		<script src="js/main.js"></script>
 	</body>

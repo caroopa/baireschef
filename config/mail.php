@@ -30,7 +30,8 @@ try {
 	//Content
 	$mail->isHTML(true);                                  //Set email format to HTML
 	$mail->Subject = 'Detalles de venta (PRUEBA)';
-	$mail->Body    = 'Has realizado una venta de '.$_SESSION["sesion"]["productos"];
+	$body = $_SESSION["sesion"]["nombre"].' ha comprado '.$_SESSION["sesion"]["productos"]."La dirección es: ";
+	$mail->Body    = $body . $_SESSION["sesion"]["direccion"];
 
 	$mail->send();
 	echo 'Message has been sent';

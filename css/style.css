@@ -11,6 +11,36 @@ body {
   color: white;
 }
 
+.btn-wsp {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #0df053;
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  text-decoration: none;
+}
+
+.btn-wsp:hover {
+  text-decoration: none;
+  color: #0df053;
+  background-color: white;
+}
+
+.wps:visited,
+.wsp:link {
+  color: white;
+}
+
 a,
 a:visited,
 a:link {
@@ -763,4 +793,122 @@ select {
   border: none;
   background-color: #41506e;
   color: white;
+}
+
+/* ****** */
+
+#direccion {
+  background-image: url(/img/fondo4.png);
+  background-size: cover;
+}
+
+.container-direccion {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  background-image: url(/img/fondo5.png);
+  background-size: cover;
+  padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.form-direccion {
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.recuadro-direccion,
+.recuadro-descuento {
+  border: #aaaa solid 2px;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.container-input {
+  display: flex;
+  gap: 2rem;
+}
+
+.container-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin: 1rem 0;
+  height: 30px;
+  border: 1px solid grey;
+}
+
+.partido {
+  margin: 1rem 0;
+  height: 30px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 0 0.5rem;
+}
+
+.btn-direccion {
+  margin: 1rem auto;
+  height: 50px;
+  width: 100%;
+  font-size: larger;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(65, 80, 110, 0.8);
+  color: white;
+  box-shadow: 0 0 20px black;
+}
+
+.btn-cupon {
+  margin: 1rem auto;
+  height: 50px;
+  width: 100%;
+  font-size: larger;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(65, 80, 110, 0.8);
+  color: white;
+  box-shadow: 0 0 20px black;
+}
+
+.titulo-direccion {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.item2 {
+  border-top: #41506e solid 2px;
+  padding: 1rem 0;
+}
+
+.textos2 {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.nombre2 {
+  width: 30%;
+}
+
+.guarnicion3 {
+  width: 30%;
+}
+
+.precio2 {
+  width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+  .container-direccion {
+    flex-direction: column;
+  }
+
+  .container-input {
+    flex-direction: column;
+  }
 }

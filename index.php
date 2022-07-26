@@ -23,6 +23,9 @@
   </head>
   <body>
 
+    <a href="https://api.whatsapp.com/send?phone=5491127276893" class="btn-wsp" target="_blank">
+      <i class="fa-brands fa-whatsapp wsp"></i>
+    </a>
     <header>
       <nav>
         <ul>
@@ -33,7 +36,7 @@
             <li>Packs</li>
             <li>Conocenos</li>
             <div class="cart-container">
-              <i class="fa-solid fa-cart-shopping cart"></i>
+              <a href="carrito.php"><i class="fa-solid fa-cart-shopping cart"></i></a>
             </div>
           </div>
           <i class="fa-solid fa-bars barra"></i>

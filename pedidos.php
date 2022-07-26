@@ -38,6 +38,9 @@
 
 </head>
 <body>
+	<!-- <a href="https://api.whatsapp.com/send?phone=5491127276893" class="btn-wsp" target="_blank">
+		<i class="fa-brands fa-whatsapp wsp"></i>
+	</a> -->
 	<section id="pedidos">
 		<nav>
 			<ul>
@@ -48,7 +51,7 @@
 					<li>Packs</li>
 					<li>Conocenos</li>
 					<div class="cart-container">
-						<a href="carrito.html"><i class="fa-solid fa-cart-shopping cart"></i></a>
+						<a href="carrito.php"><i class="fa-solid fa-cart-shopping cart"></i></a>
 						<span id="checkout"></span>
 					</div>
 				</div>
@@ -91,39 +94,6 @@
 						SUMAR</button></div>
 				</div>
 				<?php } ?>
-
-				<!-- <div class="table-row">
-					<div class="table-data">Lomo al Malbec</div>
-					<div class="table-data">
-						<select name="" id="">
-							<option value="">Papas a las finas hierbas</option>
-						</select>
-					</div>
-					<div class="table-data">1500</div>
-					<div class="table-data"><button class="sumar"
-						onclick="add(1, 'Lomo al Malbec', 1500, 'lomo.png')">SUMAR</button></div>
-				</div>
-
-				<div class="table-row">
-					<div class="table-data">Ñoquis</div>
-					<div class="table-data">
-						<select name="" id="">
-							<option value="">Bolognesa</option>
-							<option value="">Blanca</option>
-						</select>
-					</div>
-					<div class="table-data">1500</div>
-					<div class="table-data"><button class="sumar"
-						onclick="add(1, 'Lomo al Malbec', 1500, 'lomo.png')">SUMAR</button></div>
-				</div>
-
-				<div class="table-row">
-					<div class="table-data">Guiso de lentejas</div>
-					<div class="table-data"></div>
-					<div class="table-data">1500</div>
-					<div class="table-data"><button class="sumar"
-						onclick="add(1, 'Lomo al Malbec', 1500, 'lomo.png')">SUMAR</button></div>
-				</div> -->
 			</div>
 		</div>
 		<div class="total-row">

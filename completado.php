@@ -1,5 +1,5 @@
 <?php	
-  // include("config/mail.php"); 
+  include("config/mail.php"); 
 ?>
 
 <!DOCTYPE html>

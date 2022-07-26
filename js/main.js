@@ -18,13 +18,6 @@ navToggle.addEventListener("click", () => {
   }
 });
 
-// cerrar.addEventListener("click", () => {
-//   const visibility = primaryNav.getAttribute("data-visible");
-//   if (visibility === "true") {
-//     primaryNav.setAttribute("data-visible", "false");
-//   }
-// });
-
 // **********************
 
 ventanaModal = document.querySelectorAll(".ventana-modal");
@@ -56,7 +49,7 @@ function hola(valor, id, precio) {
 
   precioHTML = document.getElementById(id);
   html = precioHTML.dataset.precio;
-  precioHTML.innerHTML = parseFloat(html) + parseFloat(precio);
+  precioHTML.innerHTML = (parseFloat(html) + parseFloat(precio)).toFixed(2);
 }
 
 // *******************
@@ -189,7 +182,7 @@ function sumarTotal() {
   for (let item in products) {
     productos +=
       products[item].nombre +
-      "con" +
+      " con " +
       products[item].guarnicion +
       "(" +
       products[item].count +
@@ -212,4 +205,28 @@ function sumar() {
       products[item].count;
   }
   document.querySelector(".total-p").innerHTML = `Total: $${total}`;
+}
+
+window.addEventListener("load", () => pintarHTML2());
+const listaCarrito = document.querySelector(".lista-carrito");
+console.log(listaCarrito);
+
+function pintarHTML2() {
+  recuperarLocalStorage();
+  listaCarrito.innerHTML = products
+    .map((product) => {
+      return `
+      <div class="item">
+        <div class="textos">
+          <p>${product.nombre}</p>
+          <p>Cantidad: ${product.count}</p>
+          <p class="guarnicion">Guarnición:</p>
+          <p class="guarnicion2">${product.guarnicion}</p>
+          <p class="precio">${
+            (product.precio + product.guarnicionPrecio) * product.count
+          }</p>
+        </div>
+     </div>`;
+    })
+    .join("");
 }
