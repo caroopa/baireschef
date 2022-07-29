@@ -136,7 +136,7 @@ function pintarHTML() {
     .map((product) => {
       return `
       <div class="item">
-        <img src="img/${product.imagen}" alt="" class="img-carrito">
+        <img src="img/productos/${product.imagen}" alt="" class="img-carrito">
         <div class="textos">
           <p>${product.nombre}</p>
           <p>Cantidad: ${product.count}</p>

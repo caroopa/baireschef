@@ -90,19 +90,19 @@
 
       <div class="main">
         <div class="producto">
-          <img src="img/lomo.png" alt="" class="img-producto">
+          <img src="img/productos/lomo.png" alt="" class="img-producto">
           <p>Lomo al Malbec</p>
           <p class="italic">guarnición a elección</p>
           <button class="btn-seleccionar" onclick="abrirModal(1);">Seleccionar</button> 
         </div>
         <div class="producto">
-          <img src="img/noquis.png" alt="" class="img-producto">
+          <img src="img/productos/noquis.png" alt="" class="img-producto">
           <p>Ñoquis</p> 
           <p class="italic">salsa a elección</p>
           <button class="btn-seleccionar" onclick="abrirModal(2);">Seleccionar</button> 
         </div>
         <div class="producto">
-          <img src="img/champi.png" alt="" class="img-producto">
+          <img src="img/productos/champi.png" alt="" class="img-producto">
           <p>Pollo al champiñón</p>
           <p class="italic">guarnición a elección</p>
           <button class="btn-seleccionar" onclick="abrirModal(3);">Seleccionar</button> 

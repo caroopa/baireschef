@@ -69,13 +69,16 @@
             <button type="submit" name="btn-filtro" value="0" class="btn-filtro">Todo</button>
           </form>
 					<form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="1" class="btn-filtro">Pasta</button>
+            <button type="submit" name="btn-filtro" value="1" class="btn-filtro">Carne</button>
           </form>
 					<form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="2" class="btn-filtro">Carnes</button>
+            <button type="submit" name="btn-filtro" value="2" class="btn-filtro">Pollo</button>
+          </form>
+          <form action="productos.php" method="POST">
+            <button type="submit" name="btn-filtro" value="3" class="btn-filtro">Pasta</button>
           </form>
 					<form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="3" class="btn-filtro">Arroz</button>
+            <button type="submit" name="btn-filtro" value="5" class="btn-filtro">Guisos</button>
           </form>
 					<form action="productos.php" method="POST">
             <button type="submit" name="btn-filtro" value="4" class="btn-filtro">Guarnición</button>
@@ -84,7 +87,7 @@
 				<div class="main separacion">
 				<?php foreach($listaProductos as $producto) { ?>
             <div class="producto">
-              <img src="img/<?php echo $producto["imagen"]; ?>" alt="" class="img-producto">
+              <img src="img/productos/<?php echo $producto["imagen"]; ?>" alt="" class="img-producto">
               <p><?php echo $producto['nombre']; ?></p> 
               <p class="italic">salsa a elección</p>
               <button class="btn-seleccionar" onclick="abrirModal(<?php echo $producto['id']; ?>)">Seleccionar</button> 
