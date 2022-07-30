@@ -912,3 +912,21 @@ input {
     flex-direction: column;
   }
 }
+
+/* ***** PAGAR ***** */
+
+.gracias {
+  text-align: center;
+  border-radius: 50px;
+  background-image: url(/img/fondo5.png);
+  background-size: cover;
+  padding: 5rem;
+  margin: 3rem auto;
+  max-width: 800px;
+}
+
+#pagar {
+  height: 100vh;
+  background-image: url(/img/fondo4.png);
+  background-size: cover;
+}

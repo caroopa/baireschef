@@ -52,7 +52,7 @@
   </head>
   <body>
 
-    <section id="productos">
+    <section id="pagar">
       <nav>
         <ul>
           <li><a href="index.php"><img src="img/logo.png" alt="" class="logo" /></li></a>
@@ -69,8 +69,14 @@
         </ul>
       </nav>
 
-    <div class="checkout-btn"></div>
-		
+      <div class="gracias">
+        <h1>¡Gracias por tu pedido!</h1>
+        <p>Ahora, podés proceder a pagar con mercado pago.</p>
+        <br>
+        <div class="checkout-btn"></div>
+      </div>
+
+    </section>
 		<script>
     // *-------------------MERCADO PAGO-------------------
 

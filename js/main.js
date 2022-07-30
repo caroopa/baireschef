@@ -204,7 +204,9 @@ function sumar() {
       (products[item].precio + products[item].guarnicionPrecio) *
       products[item].count;
   }
-  document.querySelector(".total-p").innerHTML = `Total: $${total}`;
+  document.querySelector(".total-p").innerHTML = `Total: $${parseFloat(
+    total
+  ).toFixed(2)}`;
 }
 
 window.addEventListener("load", () => pintarHTML2());
