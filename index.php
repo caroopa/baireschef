@@ -26,6 +26,26 @@
     <a href="https://api.whatsapp.com/send?phone=5491127276893" class="btn-wsp" target="_blank">
       <i class="fa-brands fa-whatsapp wsp"></i>
     </a>
+
+  <div class="carrito" data-visible="false">
+    <div class="carrito-titulo">
+      <div class="cart-container">
+        <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
+      </div>
+      <p class="titulo">Carrito de compras</p>
+    </div>
+    <div class="container-carrito"></div>
+    <div class="total">
+      <p class="precio-total">Subtotal:</p>
+      <p class="totall"></p>
+    </div>
+    <form action="direccion.php" method="POST">
+      <input type="hidden" name="total" id="caja-total" value="" >
+      <input type="hidden" name="productos" id="caja-productos" value="">
+      <button class="pagar" name="finalizar">FINALIZAR COMPRA</button>
+    </form>
+  </div>
+
     <header>
       <nav>
         <ul>
@@ -36,7 +56,7 @@
             <li>Packs</li>
             <li>Conocenos</li>
             <div class="cart-container">
-              <a href="carrito.php"><i class="fa-solid fa-cart-shopping cart"></i></a>
+              <i class="fa-solid fa-cart-shopping cart"></i>
             </div>
           </div>
           <i class="fa-solid fa-bars barra"></i>
@@ -93,19 +113,19 @@
           <img src="img/productos/lomo.png" alt="" class="img-producto">
           <p>Lomo al Malbec</p>
           <p class="italic">guarnición a elección</p>
-          <button class="btn-seleccionar" onclick="abrirModal(1);">Seleccionar</button> 
+          <!-- <button class="btn-seleccionar" onclick="abrirModal(1);">Seleccionar</button>  -->
         </div>
         <div class="producto">
           <img src="img/productos/noquis.png" alt="" class="img-producto">
           <p>Ñoquis</p> 
           <p class="italic">salsa a elección</p>
-          <button class="btn-seleccionar" onclick="abrirModal(2);">Seleccionar</button> 
+          <!-- <button class="btn-seleccionar" onclick="abrirModal(2);">Seleccionar</button>  -->
         </div>
         <div class="producto">
           <img src="img/productos/champi.png" alt="" class="img-producto">
           <p>Pollo al champiñón</p>
           <p class="italic">guarnición a elección</p>
-          <button class="btn-seleccionar" onclick="abrirModal(3);">Seleccionar</button> 
+          <!-- <button class="btn-seleccionar" onclick="abrirModal(3);">Seleccionar</button>  -->
         </div>
       </div>
 

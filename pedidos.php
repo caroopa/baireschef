@@ -41,6 +41,26 @@
 	<!-- <a href="https://api.whatsapp.com/send?phone=5491127276893" class="btn-wsp" target="_blank">
 		<i class="fa-brands fa-whatsapp wsp"></i>
 	</a> -->
+
+  <div class="carrito" data-visible="false">
+    <div class="carrito-titulo">
+      <div class="cart-container">
+        <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
+      </div>
+      <p class="titulo">Carrito de compras</p>
+    </div>
+    <div class="container-carrito"></div>
+    <div class="total">
+      <p class="precio-total">Subtotal:</p>
+      <p class="totall"></p>
+    </div>
+    <form action="direccion.php" method="POST">
+      <input type="hidden" name="total" id="caja-total" value="" >
+      <input type="hidden" name="productos" id="caja-productos" value="">
+      <button class="pagar" name="finalizar">FINALIZAR COMPRA</button>
+    </form>
+  </div>
+
 	<section id="pedidos">
 		<nav>
 			<ul>
@@ -51,7 +71,7 @@
 					<li>Packs</li>
 					<li>Conocenos</li>
 					<div class="cart-container">
-						<a href="carrito.php"><i class="fa-solid fa-cart-shopping cart"></i></a>
+						<i class="fa-solid fa-cart-shopping cart"></i>
 						<span id="checkout"></span>
 					</div>
 				</div>
@@ -74,14 +94,14 @@
 					<div class="table-data">
 						<?php if($producto["id_categoria"] == 1 || $producto["id_categoria"] == 2) { ?>
 							<select class="select-guarnicion" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
-								<option selected>Elije</option>
+								<option selected>Ninguna</option>
               <?php foreach($listaGuarniciones as $guarnicion) { ?>
 								<option value="<?php echo $guarnicion["precio"]; ?>"><?php echo $guarnicion["nombre"]; ?></option>
               <?php } ?>
 							</select>
 						<?php } else if($producto["id_categoria"] == 3){ ?>
 							<select class="select-guarnicion" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
-								<option selected>Elije</option>
+								<option selected>Ninguna</option>
 							<?php foreach($listaSalsas as $salsa) { ?>
 								<option value="<?php echo $salsa["precio"]; ?>"><?php echo $salsa["nombre"]; ?></option>
               <?php } ?>

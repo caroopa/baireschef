@@ -52,6 +52,16 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
+button:hover {
+  background-color: rgb(129, 144, 174);
+}
+
+button:active {
+  background-color: rgb(129, 144, 174);
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
 nav {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -438,13 +448,22 @@ footer {
 .carrito {
   background-image: url(/img/fondo5.png);
   background-size: cover;
-  width: 50%;
+  width: 500px;
   font-size: 18px;
   font-weight: 300;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
   padding: 2rem;
+  transform: translateX(100%);
   transition: transform 350ms ease-in;
+  overflow: scroll;
   z-index: 1000;
-  margin: 2rem auto;
+}
+
+.carrito[data-visible="true"] {
+  transform: translateX(0%);
 }
 
 .btn-cerrar {
@@ -473,8 +492,7 @@ footer {
   padding: 20px 0;
   background-color: rgba(65, 80, 110, 0.8);
   padding: 1rem;
-  margin: 2rem auto;
-  width: 80%;
+  margin: 2rem 0;
 }
 
 .img-carrito {
@@ -489,7 +507,6 @@ footer {
   align-items: flex-start;
   margin-left: 2rem;
   font-size: small;
-  width: 80%;
 }
 
 .guarnicion {
@@ -504,7 +521,7 @@ footer {
 .guarnicion2::after {
   content: "";
   height: 1px;
-  width: 380px;
+  width: 250px;
   background-color: white;
   display: block;
   margin: 1rem 0;
@@ -602,7 +619,7 @@ footer {
   top: 0;
   left: 0;
   right: 0;
-  margin: 10rem auto;
+  margin: 2rem auto;
   z-index: 1000;
   pointer-events: none;
   overflow: scroll;
@@ -716,11 +733,16 @@ footer {
 
 /* ***** PEDIDOS ***** */
 
-#pedidos,
-#carrito {
+#pedidos {
   background-image: url(/img/fondo3.png);
   background-size: cover;
   height: 100vh;
+}
+
+#carrito {
+  background-image: url(/img/fondo3.png);
+  background-size: cover;
+  height: 250vh;
 }
 
 .table {

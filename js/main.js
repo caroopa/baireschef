@@ -9,12 +9,19 @@ menu.addEventListener("click", () => {
 
 const primaryNav = document.querySelector(".carrito");
 const navToggle = document.querySelector(".cart");
-// const cerrar = document.querySelector(".btn-cerrar");
+const cerrar = document.querySelector(".btn-cerrar");
 
 navToggle.addEventListener("click", () => {
   const visibility = primaryNav.getAttribute("data-visible");
   if (visibility === "false") {
     primaryNav.setAttribute("data-visible", "true");
+  }
+});
+
+cerrar.addEventListener("click", () => {
+  const visibility = primaryNav.getAttribute("data-visible");
+  if (visibility === "true") {
+    primaryNav.setAttribute("data-visible", "false");
   }
 });
 
@@ -36,7 +43,7 @@ const precios = document.querySelectorAll(".precio");
 
 let guarniciones = [];
 function hola(valor, id, precio) {
-  if (valor == "Elije") {
+  if (valor == "Ninguna") {
     precio = 0;
   }
 
@@ -140,7 +147,7 @@ function pintarHTML() {
         <div class="textos">
           <p>${product.nombre}</p>
           <p>Cantidad: ${product.count}</p>
-          <p class="guarnicion">Guarnición:</p>
+          <p class="guarnicion">Guarnición/Salsa:</p>
           <p class="guarnicion2">${product.guarnicion}</p>
           <p class="precio">${
             (product.precio + product.guarnicionPrecio) * product.count
@@ -155,8 +162,6 @@ function pintarHTML() {
   btnBorrar.forEach((element) => {
     element.addEventListener("click", (e) => {
       let borrar = 0;
-
-      console.log(e.target.id);
       for (let item in products) {
         if (products[item].nombre === e.target.id) {
           if (products[item].count > 1) {
@@ -170,6 +175,7 @@ function pintarHTML() {
       }
 
       localStorage.setItem("productos", JSON.stringify(products));
+      sumarCantidad();
       pintarHTML();
     });
   });
@@ -180,16 +186,24 @@ function sumarTotal() {
   let productos = "";
 
   for (let item in products) {
-    productos +=
-      products[item].nombre +
-      " con " +
-      products[item].guarnicion +
-      "(" +
-      products[item].count +
-      ") ";
-    total +=
-      (products[item].precio + products[item].guarnicionPrecio) *
-      products[item].count;
+    if (
+      products[item].guarnicion === "" ||
+      products[item].guarnicion === "Ninguna"
+    ) {
+      total += products[item].precio * products[item].count;
+      productos += products[item].nombre + "(" + products[item].count + ") ";
+    } else {
+      productos +=
+        products[item].nombre +
+        " con " +
+        products[item].guarnicion +
+        "(" +
+        products[item].count +
+        ") ";
+      total +=
+        (products[item].precio + products[item].guarnicionPrecio) *
+        products[item].count;
+    }
   }
   document.querySelector(".totall").innerHTML = total;
   document.getElementById("caja-total").value = total;
@@ -200,9 +214,16 @@ function sumar() {
   let total = 0;
 
   for (let item in products) {
-    total +=
-      (products[item].precio + products[item].guarnicionPrecio) *
-      products[item].count;
+    if (
+      products[item].guarnicion === "" ||
+      products[item].guarnicion === "Ninguna"
+    ) {
+      total += products[item].precio * products[item].count;
+    } else {
+      total +=
+        (products[item].precio + products[item].guarnicionPrecio) *
+        products[item].count;
+    }
   }
   document.querySelector(".total-p").innerHTML = `Total: $${parseFloat(
     total
@@ -211,7 +232,6 @@ function sumar() {
 
 window.addEventListener("load", () => pintarHTML2());
 const listaCarrito = document.querySelector(".lista-carrito");
-console.log(listaCarrito);
 
 function pintarHTML2() {
   recuperarLocalStorage();

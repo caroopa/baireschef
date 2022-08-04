@@ -43,6 +43,24 @@
       <i class="fa-brands fa-whatsapp wsp"></i>
     </a>
 
+  <div class="carrito" data-visible="false">
+    <div class="carrito-titulo">
+      <div class="cart-container">
+        <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
+      </div>
+      <p class="titulo">Carrito de compras</p>
+    </div>
+    <div class="container-carrito"></div>
+    <div class="total">
+      <p class="precio-total">Subtotal:</p>
+      <p class="totall"></p>
+    </div>
+    <form action="direccion.php" method="POST">
+      <input type="hidden" name="total" id="caja-total" value="" >
+      <input type="hidden" name="productos" id="caja-productos" value="">
+      <button class="pagar" name="finalizar">FINALIZAR COMPRA</button>
+    </form>
+  </div>
 
   <section id="productos">
       <nav>
@@ -54,7 +72,7 @@
             <li>Packs</li>
             <li>Conocenos</li>
             <div class="cart-container">
-              <a href="carrito.php"><i class="fa-solid fa-cart-shopping cart"></i></a>
+              <i class="fa-solid fa-cart-shopping cart"></i>
               <span id="checkout"></span>
             </div>
           </div>
@@ -63,7 +81,7 @@
       </nav>
 
 			<div class="productos-container">
-				<div class="filtro">
+				<!-- <div class="filtro">
 					<p class="subrayado"><u>Recomendados</u></p>
           <form action="productos.php" method="POST">
             <button type="submit" name="btn-filtro" value="0" class="btn-filtro">Todo</button>
@@ -83,14 +101,18 @@
 					<form action="productos.php" method="POST">
             <button type="submit" name="btn-filtro" value="4" class="btn-filtro">Guarnición</button>
           </form>
-				</div>
+				</div> -->
 				<div class="main separacion">
 				<?php foreach($listaProductos as $producto) { ?>
             <div class="producto">
               <img src="img/productos/<?php echo $producto["imagen"]; ?>" alt="" class="img-producto">
-              <p><?php echo $producto['nombre']; ?></p> 
-              <p class="italic">salsa a elección</p>
-              <button class="btn-seleccionar" onclick="abrirModal(<?php echo $producto['id']; ?>)">Seleccionar</button> 
+              <p><?php echo $producto['nombre']; ?></p>
+              <?php if($producto["id_categoria"] == "1" or $producto["id_categoria"] == "2") { ?>
+                <p class="italic">guarnición a elección</p>
+              <?php } else if($producto["id_categoria"] == "3") { ?>
+                <p class="italic">salsa a elección</p>
+              <?php } ?>
+              <button class="btn-seleccionar" onclick="abrirModal(<?php echo $producto['id']; ?>)">Información</button> 
             </div>
 				<?php } ?>
 				</div>
@@ -103,18 +125,7 @@
 						<h1><?php echo $producto['nombre']; ?></h1>
 						<p><?php echo $producto['descripcion']; ?></p>
 						<div class="botones">
-            <button type="button" class="btn-agregar"><?php echo $producto["precio"]; ?></button> 
-						</div>
-						<p>Seleccioná la guarnición que más te guste, tu elección.</p>
-						<div class="botones">
-            <select class="select-guarnicion">
-              <?php foreach($listaGuarniciones as $guarnicion) { ?>
-              <option value="<?php echo $guarnicion["nombre"]; ?>"><?php echo $guarnicion["nombre"]; ?></option>
-              <?php } ?>
-            </select>
-							<button class="btn-agregar"
-              onclick="add('<?php echo $producto['id']; ?>', '<?php echo $producto['nombre']; ?>', '<?php echo $producto['precio']; ?>', '<?php echo $producto['imagen']; ?>')">
-              Agregar al carrito</button>
+              <a href="pedidos.php"><button class="btn-agregar">Comprar</button></a>
 						</div>
 					</div>
 					<button class="btn-cerrar-ventana" onclick="cerrarModal(<?php echo $producto['id']; ?>)">X</button>

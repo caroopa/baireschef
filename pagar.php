@@ -58,9 +58,9 @@
           <li><a href="index.php"><img src="img/logo.png" alt="" class="logo" /></li></a>
           <div class="items-container">
             <li><a href="productos.php">Nuestros Platos</a></li>
+            <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <li>Dónde estamos</li>
             <div class="cart-container">
               <i class="fa-solid fa-cart-shopping cart"></i>
             </div>
