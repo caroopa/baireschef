@@ -5,16 +5,17 @@
   if(isset($_POST["btn-enviar-direccion"])) {
     $nombre = $_POST["nombre"] ." ". $_POST["apellido"];
     $direccion = $_POST["calle"] . " " . $_POST["numero"]. " ".$_POST["piso"]. " (".$_POST["localidad"] .")";
-    // $direccion .= " " . $_POST["partido"];
+    $telefono = $_POST["telefono"];
 
     $_SESSION["sesion"]["nombre"] = $nombre;
     $_SESSION["sesion"]["direccion"] = $direccion;
+    $_SESSION["sesion"]["telefono"] = $telefono;
   }
 ?>
 
 <?php
 	require "vendor/autoload.php";
-	MercadoPago\SDK::setAccessToken("TEST-1679717974175094-070717-9b1856b04e0e1d864603d21eaf212783-448338904");
+	MercadoPago\SDK::setAccessToken("APP_USR-8648553591730493-080412-e88bb815cf49a8d6b161b1147bbb7b2b-64216401");
 
 	$preference = new MercadoPago\Preference();
 	$item = new MercadoPago\Item();
@@ -27,7 +28,7 @@
 
 	$preference->items = array($item);
 	$preference->back_urls = array(
-		"success" => "http://localhost/baires/completado.php",
+		"success" => "http://baireschef.com/gEv872rmwd.php",
 		"failure" => "http://localhost/baires/fallo.php"
 	);
 	$preference->auto_return = "approved";
@@ -61,9 +62,9 @@
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <div class="cart-container">
+            <!-- <div class="cart-container">
               <i class="fa-solid fa-cart-shopping cart"></i>
-            </div>
+            </div> -->
           </div>
           <i class="fa-solid fa-bars barra"></i>
         </ul>
@@ -80,7 +81,7 @@
 		<script>
     // *-------------------MERCADO PAGO-------------------
 
-    const mp = new MercadoPago("TEST-d278bc9c-11df-471b-8abe-bda7a6f1b308", {
+    const mp = new MercadoPago("APP_USR-b38c8aeb-38ed-4d5a-8b8d-8888cdd29dd0", {
       locale: "es-AR",
     });
 

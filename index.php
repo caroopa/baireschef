@@ -201,7 +201,7 @@
           <div class="nombres">
             <p>baireschefok@gmail.com</p>
             <p>+549112727-6893</p>
-            <p>BairesChefOK</p>
+            <a href="https://www.instagram.com/baireschefok/"><p>BairesChefOK</p></a>
           </div>
         </div>
       </footer>

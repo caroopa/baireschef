@@ -30,8 +30,9 @@ try {
 	//Content
 	$mail->isHTML(true);                                  //Set email format to HTML
 	$mail->Subject = 'Detalles de venta (PRUEBA)';
-	$body = $_SESSION["sesion"]["nombre"].' ha comprado '.$_SESSION["sesion"]["productos"]."La dirección es: ";
-	$mail->Body    = $body . $_SESSION["sesion"]["direccion"];
+	$body = $_SESSION["sesion"]["nombre"].' ha comprado '.$_SESSION["sesion"]["productos"]. "<br> La dirección es: ";
+	$mail->Body    = $body . $_SESSION["sesion"]["direccion"] . ".<br>Su teléfono es " . $_SESSION["sesion"]["telefono"];
+	// $mail->Body    = $body . "<br>El código de venta es: " . $_GET["payment_id"];
 
 	$mail->send();
 	} catch (Exception $e) {

@@ -29,9 +29,9 @@
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <div class="cart-container">
+            <!-- <div class="cart-container">
               <i class="fa-solid fa-cart-shopping cart"></i>
-            </div>
+            </div> -->
           </div>
           <i class="fa-solid fa-bars barra"></i>
         </ul>

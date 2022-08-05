@@ -120,7 +120,7 @@
 
 			<?php foreach($listaProductos as $producto) { ?>
 				<div class="ventana-modal">
-					<img src="img/<?php echo $producto['imagen']; ?>" alt="" class="img-modal">
+					<img src="img/productos/<?php echo $producto['imagen']; ?>" alt="" class="img-modal">
 					<div class="texto">
 						<h1><?php echo $producto['nombre']; ?></h1>
 						<p><?php echo $producto['descripcion']; ?></p>
@@ -131,7 +131,20 @@
 					<button class="btn-cerrar-ventana" onclick="cerrarModal(<?php echo $producto['id']; ?>)">X</button>
 				</div>
 			<?php } ?>
-		</section>
+
+      <footer>
+        <img src="img/logo.png" alt="" class="logo2">
+        <div class="v-line"></div>
+        <div class="footer-container">
+          <img src="img/iconos.png" alt="" class="iconos">
+          <div class="nombres">
+            <p>baireschefok@gmail.com</p>
+            <p>+549112727-6893</p>
+            <a href="https://www.instagram.com/baireschefok/"><p>BairesChefOK</p></a>
+          </div>
+        </div>
+      </footer>      
+      </section>
 
 		<script src="js/main.js"></script>
   </body>

@@ -623,6 +623,8 @@ footer {
   z-index: 1000;
   pointer-events: none;
   overflow: scroll;
+  visibility: hidden;
+  transition: all 0.35s ease-in;
 }
 
 .img-modal {
@@ -659,6 +661,12 @@ footer {
   margin: 2rem;
 }
 
+.btn-cerrar-ventana:hover {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .texto p {
   text-align: right;
   margin-bottom: 3rem;
@@ -685,6 +693,7 @@ footer {
 }
 
 .show-modal {
+  visibility: visible;
   pointer-events: auto;
   opacity: 1;
 }

@@ -43,9 +43,9 @@
 						<li><a href="pedidos.php">Hacé tu pedido</a></li>
 						<li>Packs</li>
 						<li>Conocenos</li>
-						<div class="cart-container">
+						<!-- <div class="cart-container">
 							<i class="fa-solid fa-cart-shopping cart"></i>
-						</div>
+						</div> -->
 					</div>
 					<i class="fa-solid fa-bars barra"></i>
 				</ul>
@@ -66,6 +66,10 @@
 								</div>
 							</div>
 							<div class="container-2">
+								<label for="">Teléfono</label>
+								<input type="text" name="telefono" />
+							</div>
+							<div class="container-2">
 								<label for="">Calle</label>
 								<input type="text" name="calle" />
 							</div>
@@ -83,12 +87,12 @@
 								<label for="">Localidad</label>
 								<input type="text" name="localidad" />
 							</div>
-							<label for="partido">Partido</label>
+							<!-- <label for="partido">Partido</label>
 							<select name="" for="partido" name="partido" class="partido">
 								<option value="" selected>Elije un partido</option>
 								<option value="">3 de Febrero</option>
 								<option value="">San Martín</option>
-							</select>
+							</select> -->
 							<div class="container-2">
 								<label for="">Entre calles</label>
 								<input type="text" name="calles" />

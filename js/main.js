@@ -67,7 +67,7 @@ recuperarLocalStorage();
 
 function add(id, product, price, img) {
   let guarnicion = "";
-  let guarnicionPrecio = "";
+  let guarnicionPrecio = 0;
   for (let i = 0; i < guarniciones.length; i++) {
     if (guarniciones[i].id === id) {
       guarnicion = guarniciones[i].nombre;
@@ -208,6 +208,7 @@ function sumarTotal() {
   document.querySelector(".totall").innerHTML = total;
   document.getElementById("caja-total").value = total;
   document.getElementById("caja-productos").value = productos;
+  return total;
 }
 
 function sumar() {
