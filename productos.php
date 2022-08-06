@@ -120,10 +120,11 @@
 
 			<?php foreach($listaProductos as $producto) { ?>
 				<div class="ventana-modal">
-					<img src="img/productos/<?php echo $producto['imagen']; ?>" alt="" class="img-modal">
+					<!-- <img src="img/productos/<?php echo $producto['imagen']; ?>" alt="" class="img-modal"> -->
 					<div class="texto">
 						<h1><?php echo $producto['nombre']; ?></h1>
 						<p><?php echo $producto['descripcion']; ?></p>
+            <p><?php echo $producto['valorNutricional']; ?></p>
 						<div class="botones">
               <a href="pedidos.php"><button class="btn-agregar">Comprar</button></a>
 						</div>

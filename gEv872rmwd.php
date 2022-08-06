@@ -1,7 +1,3 @@
-<?php	
-  include("config/mail.php"); 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,3 +41,11 @@
     <script src="js/main2.js"></script>
 	</body>
 </html>
+
+<?php
+  session_unset();
+  session_destroy();
+  include("config/mail.php");
+  echo "<script>window.location.href='index.php';</script>";
+  die();
+?>

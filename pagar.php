@@ -28,8 +28,8 @@
 
 	$preference->items = array($item);
 	$preference->back_urls = array(
-		"success" => "http://baireschef.com/gEv872rmwd.php",
-		"failure" => "http://localhost/baires/fallo.php"
+		"success" => "http://baireschef.com/success.php",
+		"failure" => "http://baireschef.com/index.php"
 	);
 	$preference->auto_return = "approved";
 	$preference->save();

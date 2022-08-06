@@ -608,7 +608,7 @@ footer {
 /* ***** VENTANA ***** */
 
 .ventana-modal {
-  max-width: 1200px;
+  max-width: 600px;
   display: flex;
   background-image: url(/img/fondo6.png);
   background-size: cover;
@@ -625,6 +625,7 @@ footer {
   overflow: scroll;
   visibility: hidden;
   transition: all 0.35s ease-in;
+  height: 80vh;
 }
 
 .img-modal {

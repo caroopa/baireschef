@@ -1,5 +1,11 @@
 <?php
-session_start();
+
+include("config/db.php");
+
+$sentenciaSQL = $conexion -> prepare("SELECT * FROM compras WHERE id = (SELECT MAX(id) FROM compras);");
+$sentenciaSQL -> execute();
+$compras = $sentenciaSQL -> fetchALL(PDO::FETCH_ASSOC);
+
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -30,9 +36,10 @@ try {
 	//Content
 	$mail->isHTML(true);                                  //Set email format to HTML
 	$mail->Subject = 'Detalles de venta (PRUEBA)';
-	$body = $_SESSION["sesion"]["nombre"].' ha comprado '.$_SESSION["sesion"]["productos"]. "<br> La dirección es: ";
-	$mail->Body    = $body . $_SESSION["sesion"]["direccion"] . ".<br>Su teléfono es " . $_SESSION["sesion"]["telefono"];
-	// $mail->Body    = $body . "<br>El código de venta es: " . $_GET["payment_id"];
+	foreach($compras as $compra) {
+	$body = "Número de compra: " . $compra["id"] . "<br>" . $compra["nombre"].' ha comprado '.$compra["productos"]. "<br> La dirección es: ";
+	$mail->Body    = $body . $compra["direccion"] . ".<br>Su teléfono es " . $compra["telefono"] . "<br>El código de venta es: " . $compra["detalle"];
+	}
 
 	$mail->send();
 	} catch (Exception $e) {
