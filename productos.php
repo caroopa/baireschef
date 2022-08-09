@@ -7,7 +7,7 @@
   }
   
   if($filtro == "0") {
-    $sentenciaSQL = $conexion -> prepare("SELECT * FROM productos");
+    $sentenciaSQL = $conexion -> prepare("SELECT * FROM productos ORDER BY nombre ASC ");
     $sentenciaSQL -> execute();
     $listaProductos = $sentenciaSQL -> fetchALL(PDO::FETCH_ASSOC);
   }
@@ -46,7 +46,7 @@
   <div class="carrito" data-visible="false">
     <div class="carrito-titulo">
       <div class="cart-container">
-        <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
+        <i class="fa-solid fa-circle-xmark btn-cerrar"></i></>
       </div>
       <p class="titulo">Carrito de compras</p>
     </div>
@@ -71,12 +71,12 @@
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <div class="cart-container">
-              <i class="fa-solid fa-cart-shopping cart"></i>
-              <span id="checkout"></span>
-            </div>
           </div>
           <i class="fa-solid fa-bars barra"></i>
+          <div class="cart-container">
+              <i class="fa-solid fa-cart-shopping cart"></i>
+              <span id="checkout"></span>
+          </div>
         </ul>
       </nav>
 
@@ -112,15 +112,16 @@
               <?php } else if($producto["id_categoria"] == "3") { ?>
                 <p class="italic">salsa a elección</p>
               <?php } ?>
-              <button class="btn-seleccionar" onclick="abrirModal(<?php echo $producto['id']; ?>)">Información</button> 
+              <!-- <button class="btn-seleccionar" onclick="abrirModal(<?php echo $producto['id']; ?>)">Información</button>  -->
+              <a href="detalle.php?id=<?php echo $producto["id"]; ?>"><button class="btn-seleccionar">Ver detalles</button></a>
             </div>
 				<?php } ?>
 				</div>
 			</div>
 
 			<?php foreach($listaProductos as $producto) { ?>
-				<div class="ventana-modal">
-					<!-- <img src="img/productos/<?php echo $producto['imagen']; ?>" alt="" class="img-modal"> -->
+				<!-- <div class="ventana-modal">
+					<img src="img/productos/<?php echo $producto['imagen']; ?>" alt="" class="img-modal">
 					<div class="texto">
 						<h1><?php echo $producto['nombre']; ?></h1>
 						<p><?php echo $producto['descripcion']; ?></p>
@@ -130,7 +131,7 @@
 						</div>
 					</div>
 					<button class="btn-cerrar-ventana" onclick="cerrarModal(<?php echo $producto['id']; ?>)">X</button>
-				</div>
+				</div> -->
 			<?php } ?>
 
       <footer>

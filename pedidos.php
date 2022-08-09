@@ -45,7 +45,7 @@
   <div class="carrito" data-visible="false">
     <div class="carrito-titulo">
       <div class="cart-container">
-        <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
+        <i class="fa-solid fa-circle-xmark btn-cerrar"></i></>
       </div>
       <p class="titulo">Carrito de compras</p>
     </div>
@@ -70,14 +70,17 @@
 					<li><a href="pedidos.php">Hacé tu pedido</a></li>
 					<li>Packs</li>
 					<li>Conocenos</li>
-					<div class="cart-container">
-						<i class="fa-solid fa-cart-shopping cart"></i>
-						<span id="checkout"></span>
-					</div>
 				</div>
 				<i class="fa-solid fa-bars barra"></i>
+				<div class="cart-container">
+						<i class="fa-solid fa-cart-shopping cart"></i>
+						<span id="checkout"></span>
+				</div>
 			</ul>
 		</nav>
+
+		<!-- <p id="obligatorio">Para las proteínas es obligatorio el agregado de una guarnición, y para las pastas una salsa.
+		</p> -->
 
 		<div class="table">
 			<div class="table-header">
@@ -94,14 +97,14 @@
 					<div class="table-data">
 						<?php if($producto["id_categoria"] == 1 || $producto["id_categoria"] == 2) { ?>
 							<select class="select-guarnicion" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
-								<option selected>Ninguna</option>
+								<option selected disabled="disabled">Elije</option>
               <?php foreach($listaGuarniciones as $guarnicion) { ?>
 								<option value="<?php echo $guarnicion["precio"]; ?>"><?php echo $guarnicion["nombre"]; ?></option>
               <?php } ?>
 							</select>
 						<?php } else if($producto["id_categoria"] == 3){ ?>
 							<select class="select-guarnicion" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
-								<option selected>Ninguna</option>
+								<option selected disabled="disabled">Elije</option>
 							<?php foreach($listaSalsas as $salsa) { ?>
 								<option value="<?php echo $salsa["precio"]; ?>"><?php echo $salsa["nombre"]; ?></option>
               <?php } ?>
@@ -110,16 +113,28 @@
 					</div>
 					<div class="table-data" id="<?php echo $producto['id']; ?>" data-precio = "<?php echo $producto['precio']; ?>"><?php echo $producto['precio']; ?></div>
 					<div class="table-data"><button class="sumar" 
-						onclick="add('<?php echo $producto['id']; ?>', '<?php echo $producto['nombre']; ?>', '<?php echo $producto['precio']; ?>', '<?php echo $producto['imagen']; ?>')">
+						onclick="add('<?php echo $producto['id']; ?>', '<?php echo $producto['nombre']; ?>', '<?php echo $producto['precio']; ?>', '<?php echo $producto['imagen']; ?>', '<?php echo $producto['id_categoria']; ?>')">
 						SUMAR</button></div>
 				</div>
 				<?php } ?>
+				</div>
 			</div>
-		</div>
-		<div class="total-row">
+		<!-- <div class="total-row">
 			<p class="total-p">Total:</p>
+		</div> -->
 		</div>
-		</div>
+		<footer>
+			<img src="img/logo.png" alt="" class="logo2">
+			<div class="v-line"></div>
+			<div class="footer-container">
+				<img src="img/iconos.png" alt="" class="iconos">
+				<div class="nombres">
+					<p>baireschefok@gmail.com</p>
+					<p>+549112727-6893</p>
+					<a href="https://www.instagram.com/baireschefok/"><p>BairesChefOK</p></a>
+				</div>
+			</div>
+		</footer>
 	</section>
 	<script src="js/main.js"></script>
 </body>

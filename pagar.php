@@ -4,12 +4,13 @@
   session_start();
   if(isset($_POST["btn-enviar-direccion"])) {
     $nombre = $_POST["nombre"] ." ". $_POST["apellido"];
-    $direccion = $_POST["calle"] . " " . $_POST["numero"]. " ".$_POST["piso"]. " (".$_POST["localidad"] .")";
+    $direccion = $_POST["calle"] . " " . $_POST["numero"]. " ".$_POST["piso"]. " (".$_POST["localidadNombre"] .")";
     $telefono = $_POST["telefono"];
 
     $_SESSION["sesion"]["nombre"] = $nombre;
     $_SESSION["sesion"]["direccion"] = $direccion;
     $_SESSION["sesion"]["telefono"] = $telefono;
+    $_SESSION["sesion"]["total"] += $_REQUEST["localidad"];
   }
 ?>
 
@@ -28,8 +29,8 @@
 
 	$preference->items = array($item);
 	$preference->back_urls = array(
-		"success" => "http://baireschef.com/success.php",
-		"failure" => "http://baireschef.com/index.php"
+		"success" => "http://localhost/baires/success.php",
+		"failure" => "https://baireschef.com/index.php"
 	);
 	$preference->auto_return = "approved";
 	$preference->save();

@@ -30,7 +30,7 @@
   <div class="carrito" data-visible="false">
     <div class="carrito-titulo">
       <div class="cart-container">
-        <i class="fa-solid fa-cart-shopping btn-cerrar"></i></>
+        <i class="fa-solid fa-circle-xmark btn-cerrar"></i></>
       </div>
       <p class="titulo">Carrito de compras</p>
     </div>
@@ -55,11 +55,12 @@
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
             <li>Packs</li>
             <li>Conocenos</li>
-            <div class="cart-container">
-              <i class="fa-solid fa-cart-shopping cart"></i>
-            </div>
           </div>
           <i class="fa-solid fa-bars barra"></i>
+          <div class="cart-container">
+              <i class="fa-solid fa-cart-shopping cart"></i>
+              <span id="checkout"></span>
+          </div>
         </ul>
       </nav>
       <div class="header-container">

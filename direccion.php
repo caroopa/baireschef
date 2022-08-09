@@ -15,6 +15,12 @@
 			$mensaje = "Cupón inválido";
 		}
   }
+
+  include("config/db.php");
+	$sentenciaSQL = $conexion -> prepare("SELECT * FROM localidades ORDER BY nombre ASC ");
+	$sentenciaSQL -> execute();
+	$listaLocalidades = $sentenciaSQL -> fetchALL(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +91,14 @@
 							</div>
 							<div class="container-2">
 								<label for="">Localidad</label>
-								<input type="text" name="localidad" />
+								<select name="localidad" id="localidad" 
+									onchange="mostrarPrecio(this.options[this.selectedIndex].value, this.options[this.selectedIndex].text)">
+									<option value="0" selected disabled>Elije</option>
+									<?php foreach($listaLocalidades as $localidad) { ?>
+										<option value="<?php echo $localidad["precio"]; ?>"><?php echo $localidad["nombre"]; ?></option>
+									<?php	} ?>
+								</select>
+								<p id="mostrarPrecio"></p>
 							</div>
 							<!-- <label for="partido">Partido</label>
 							<select name="" for="partido" name="partido" class="partido">
@@ -97,6 +110,7 @@
 								<label for="">Entre calles</label>
 								<input type="text" name="calles" />
 							</div>
+							<input type="hidden" name="localidadNombre" id="caja-localidad" value="">
 							<button
 								type="submit"
 								name="btn-enviar-direccion"

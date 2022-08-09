@@ -37,3 +37,9 @@ function pintarHTML() {
     })
     .join("");
 }
+
+const precio = document.getElementById("mostrarPrecio");
+function mostrarPrecio(valor, nombre) {
+  precio.innerHTML = `El precio del envío es de $${valor}`;
+  document.getElementById("caja-localidad").value = nombre;
+}

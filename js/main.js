@@ -43,10 +43,6 @@ const precios = document.querySelectorAll(".precio");
 
 let guarniciones = [];
 function hola(valor, id, precio) {
-  if (valor == "Ninguna") {
-    precio = 0;
-  }
-
   const objetoGuarniciones = {
     id: id,
     nombre: valor,
@@ -54,8 +50,8 @@ function hola(valor, id, precio) {
   };
   guarniciones.push(objetoGuarniciones);
 
-  precioHTML = document.getElementById(id);
-  html = precioHTML.dataset.precio;
+  const precioHTML = document.getElementById(id);
+  const html = precioHTML.dataset.precio;
   precioHTML.innerHTML = (parseFloat(html) + parseFloat(precio)).toFixed(2);
 }
 
@@ -65,7 +61,7 @@ let products = [];
 
 recuperarLocalStorage();
 
-function add(id, product, price, img) {
+function add(id, product, price, img, categ) {
   let guarnicion = "";
   let guarnicionPrecio = 0;
   for (let i = 0; i < guarniciones.length; i++) {
@@ -83,8 +79,8 @@ function add(id, product, price, img) {
       products[item].count++;
       sendLocalStorage();
       sumarCantidad();
-      sumar();
       pintarHTML();
+      // sumar();
       return;
     }
   }
@@ -97,13 +93,28 @@ function add(id, product, price, img) {
     count: 1,
     guarnicion: guarnicion,
     guarnicionPrecio: parseFloat(guarnicionPrecio),
+    categoria: parseInt(categ),
   };
+
+  if (
+    nuevoObjeto.guarnicion === "" &&
+    (nuevoObjeto.categoria === 1 ||
+      nuevoObjeto.categoria === 2 ||
+      nuevoObjeto.categoria === 3)
+  ) {
+    if (nuevoObjeto.categoria === 1 || nuevoObjeto.categoria === 2) {
+      alert("Debes elegir una guarnición.");
+    } else {
+      alert("Debes elegir una salsa.");
+    }
+    return;
+  }
 
   products.push(nuevoObjeto);
   sendLocalStorage();
   sumarCantidad();
-  sumar();
   pintarHTML();
+  // sumar();
 }
 
 function sumarCantidad() {
@@ -122,9 +133,9 @@ function recuperarLocalStorage() {
   document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("productos")) {
       products = JSON.parse(localStorage.getItem("productos"));
-      sumarCantidad();
-      sumar();
       pintarHTML();
+      sumarCantidad();
+      // sumar();
     }
   });
 }
@@ -135,9 +146,6 @@ const containerCarrito = document.querySelector(".container-carrito");
 function pintarHTML() {
   recuperarLocalStorage();
   sumarTotal();
-
-  let totalProducto;
-  let guarnicion;
 
   containerCarrito.innerHTML = products
     .map((product) => {
@@ -186,10 +194,7 @@ function sumarTotal() {
   let productos = "";
 
   for (let item in products) {
-    if (
-      products[item].guarnicion === "" ||
-      products[item].guarnicion === "Ninguna"
-    ) {
+    if (products[item].guarnicion === "") {
       total += products[item].precio * products[item].count;
       productos += products[item].nombre + "(" + products[item].count + ") ";
     } else {
@@ -211,25 +216,24 @@ function sumarTotal() {
   return total;
 }
 
-function sumar() {
-  let total = 0;
+// function sumar() {
+//   let total = 0;
 
-  for (let item in products) {
-    if (
-      products[item].guarnicion === "" ||
-      products[item].guarnicion === "Ninguna"
-    ) {
-      total += products[item].precio * products[item].count;
-    } else {
-      total +=
-        (products[item].precio + products[item].guarnicionPrecio) *
-        products[item].count;
-    }
-  }
-  document.querySelector(".total-p").innerHTML = `Total: $${parseFloat(
-    total
-  ).toFixed(2)}`;
-}
+//   for (let item in products) {
+//     if (products[item].guarnicion === "") {
+//       total += products[item].precio * products[item].count;
+//     } else {
+//       total +=
+//         (products[item].precio + products[item].guarnicionPrecio) *
+//         products[item].count;
+//     }
+//   }
+//   document.querySelector(".total-p").innerHTML = `Total: $${parseFloat(
+//     total
+//   ).toFixed(2)}`;
+// }
+
+// ***************************
 
 window.addEventListener("load", () => pintarHTML2());
 const listaCarrito = document.querySelector(".lista-carrito");

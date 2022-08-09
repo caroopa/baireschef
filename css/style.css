@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 
 * {
   margin: 0;
@@ -105,6 +106,8 @@ li {
   background-color: #41506e;
   margin-top: -10px;
   border: 1px solid black;
+  font-size: large;
+  margin: 2rem;
 }
 
 .cart {
@@ -112,15 +115,17 @@ li {
 }
 
 .barra {
-  display: none !important;
+  display: none;
+  opacity: 0;
 }
 
 @media screen and (max-width: 1200px) {
   .barra {
-    margin: 3rem;
+    margin: 3rem 1.5rem;
     font-size: 3rem;
     display: flex;
     cursor: pointer;
+    opacity: 1;
   }
 
   /* .container-items {
@@ -135,6 +140,10 @@ li {
 
   .show {
     display: flex;
+  }
+
+  .cart-container {
+    margin: 3rem 3rem 0 0;
   }
 }
 
@@ -245,6 +254,10 @@ video {
   padding: 3rem;
   margin: 0 auto;
   border-radius: 500px;
+}
+
+.instrucciones h1 {
+  font-family: "Dancing Script", cursive;
 }
 
 .instrucciones-container {
@@ -380,6 +393,24 @@ h1 {
   font-style: oblique;
 }
 
+@media screen and (max-width: 500px) {
+  .producto {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-producto {
+    width: 100px;
+  }
+
+  .btn-seleccionar {
+    width: 100px;
+    margin: 1rem auto 0 auto;
+  }
+}
+
 /* ***** FOOTER ***** */
 
 footer {
@@ -435,11 +466,22 @@ footer {
 
   .footer-container {
     margin-top: 2rem;
-    width: 400px;
+    width: 250px;
   }
 
   .iconos {
     margin-left: 0;
+    width: 30px;
+    /* height: 20px; */
+  }
+
+  .logo2 {
+    width: 250px;
+    height: 100%;
+  }
+
+  .nombres p {
+    font-size: 1rem;
   }
 }
 
@@ -556,6 +598,16 @@ footer {
 
 .cant {
   font-style: oblique;
+}
+
+@media screen and (max-width: 500px) {
+  .carrito {
+    width: 100%;
+  }
+
+  .guarnicion2::after {
+    width: 100px;
+  }
 }
 
 /* ******************************************************************* */
@@ -746,13 +798,20 @@ footer {
 #pedidos {
   background-image: url(/img/fondo3.png);
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
-#carrito {
+/* #carrito {
   background-image: url(/img/fondo3.png);
   background-size: cover;
   height: 250vh;
+} */
+
+#obligatorio {
+  width: 80%;
+  font-size: 1.5rem;
+  font-style: oblique;
+  margin: 2rem auto;
 }
 
 .table {
@@ -790,7 +849,7 @@ footer {
 
 .table-header,
 .table-row {
-  height: 2rem;
+  height: 50px;
   display: flex;
   align-items: center;
 }
@@ -830,6 +889,14 @@ select {
 @media screen and (max-width: 900px) {
   select {
     width: 100px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .table-row,
+  .table-header {
+    flex-direction: column;
+    height: 200px;
   }
 }
 
@@ -967,4 +1034,64 @@ input {
   height: 100vh;
   background-image: url(/img/fondo4.png);
   background-size: cover;
+}
+
+/* ***** DETALLE ****** */
+
+#detalle {
+  background-image: url(/img/fondo1.png);
+  background-size: cover;
+}
+
+.detalle-container {
+  margin: 3rem auto;
+  background-color: rgba(65, 80, 110, 0.8);
+  max-width: 1200px;
+  padding: 2rem;
+  border-radius: 50px;
+  display: flex;
+}
+
+.img-detalle {
+  width: 500px;
+  height: 100%;
+}
+
+.textos-detalle {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 2rem;
+}
+
+.textos-detalle h1 {
+  font-family: "Dancing Script", cursive;
+  font-style: oblique;
+  text-align: center;
+}
+
+.textos-detalle p {
+  text-align: right;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .detalle-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .textos-detalle {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .img-detalle {
+    width: 250px;
+  }
 }
