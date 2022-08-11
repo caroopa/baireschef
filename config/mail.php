@@ -35,7 +35,7 @@ try {
 
 	//Content
 	$mail->isHTML(true);                                  //Set email format to HTML
-	$mail->Subject = 'Detalles de venta (PRUEBA)';
+	$mail->Subject = 'Detalles de venta';
 	foreach($compras as $compra) {
 	$body = "Número de compra: " . $compra["id"] . "<br>" . $compra["nombre"].' ha comprado '.$compra["productos"]. "<br> La dirección es: ";
 	$mail->Body    = $body . $compra["direccion"] . ".<br>Su teléfono es " . $compra["telefono"] . "<br>El código de venta es: " . $compra["detalle"];
