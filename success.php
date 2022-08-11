@@ -20,13 +20,6 @@
 	}
 ?>
 
-<?php	
-	session_unset();
-	session_destroy();
-	echo "<script>window.location.href='index.php';</script>";
-	die();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +29,13 @@
 	<title>Document</title>
 </head>
 <body>
-	<script src="js/main2.js"></script>
+	<script>localStorage.removeItem("productos");</script>
 </body>
-</html>l
+</html>
+
+<?php	
+	session_unset();
+	session_destroy();
+	echo "<script>window.location.href='index.php';</script>";
+	die();
+?>
