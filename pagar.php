@@ -29,7 +29,7 @@
 
 	$preference->items = array($item);
 	$preference->back_urls = array(
-		"success" => "http://localhost/baires/success.php",
+		"success" => "http://baireschef.com/success.php",
 		"failure" => "https://baireschef.com/index.php"
 	);
 	$preference->auto_return = "approved";

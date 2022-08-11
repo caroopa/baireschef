@@ -43,13 +43,14 @@
 </html>
 
 <?php
-if (isset($_SESSION["sesion"]["detalle"])) {
-  session_unset();
-  session_destroy();
-  include("config/mail.php");
-}
-else {
-  echo "<script>window.location.href='index.php';</script>";
-  die();
-}
+  // session_start();
+  // if (isset($_SESSION["sesion"]["detalle"])) {
+    include("config/mail.php");
+    session_unset();
+    session_destroy();
+  // }
+  // else {
+    echo "<script>window.location.href='index.php';</script>";
+    die();
+  // }
 ?>

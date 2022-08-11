@@ -11,6 +11,11 @@
 			$_SESSION["sesion"]["total"] -= $_SESSION["sesion"]["total"] * $descuento;
 			$mensaje = "Cupón aceptado, se ha descontado " . $descuento*100 . "%.";
 		}
+		else if($_POST["cupon"] == "CHAU") {
+			$descuento = 0.99;
+			$_SESSION["sesion"]["total"] -= $_SESSION["sesion"]["total"] * $descuento;
+			$mensaje = "Cupón aceptado, se ha descontado " . $descuento*100 . "%.";
+		}
 		else {
 			$mensaje = "Cupón inválido";
 		}
@@ -64,16 +69,16 @@
 							<div class="container-input">
 								<div class="container-2">
 									<label for="">Nombre</label>
-									<input type="text" name="nombre" />
+									<input type="text" name="nombre" required/>
 								</div>
 								<div class="container-2">
 									<label for="">Apellido</label>
-									<input type="text" name="apellido" />
+									<input type="text" name="apellido"/>
 								</div>
 							</div>
 							<div class="container-2">
 								<label for="">Teléfono</label>
-								<input type="text" name="telefono" />
+								<input type="text" name="telefono" required/>
 							</div>
 							<div class="container-2">
 								<label for="">Calle</label>
@@ -91,9 +96,9 @@
 							</div>
 							<div class="container-2">
 								<label for="">Localidad</label>
-								<select name="localidad" id="localidad" 
+								<select name="localidad" id="localidad" required
 									onchange="mostrarPrecio(this.options[this.selectedIndex].value, this.options[this.selectedIndex].text)">
-									<option value="0" selected disabled>Elije</option>
+									<option value="" selected disabled>Elije</option>
 									<?php foreach($listaLocalidades as $localidad) { ?>
 										<option value="<?php echo $localidad["precio"]; ?>"><?php echo $localidad["nombre"]; ?></option>
 									<?php	} ?>

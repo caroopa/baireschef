@@ -157,7 +157,7 @@ function pintarHTML() {
           <p>Cantidad: ${product.count}</p>
           <p class="guarnicion">Guarnición/Salsa:</p>
           <p class="guarnicion2">${product.guarnicion}</p>
-          <p class="precio">${
+          <p class="precio">$${
             (product.precio + product.guarnicionPrecio) * product.count
           }</p>
         </div>
@@ -210,7 +210,7 @@ function sumarTotal() {
         products[item].count;
     }
   }
-  document.querySelector(".totall").innerHTML = total;
+  document.querySelector(".totall").innerHTML = `$${total}`;
   document.getElementById("caja-total").value = total;
   document.getElementById("caja-productos").value = productos;
   return total;

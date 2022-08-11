@@ -884,6 +884,7 @@ select {
   border: none;
   background-color: #41506e;
   color: white;
+  height: 30px;
 }
 
 @media screen and (max-width: 900px) {
