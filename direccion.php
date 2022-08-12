@@ -135,7 +135,7 @@
 								<label for="">Cupón</label>
 								<input type="text" name="cupon">
 							</div>
-							<p>Total a pagar: $<?php echo $_SESSION["sesion"]["total"]; ?></p>
+							<p>Subtotal: $<?php echo $_SESSION["sesion"]["total"]; ?></p>
 							<button type="submit" name="btn-cupon" class="btn-cupon">Descontar</button>
 						</form>
 						<p><?php if(isset($_POST["btn-cupon"])) {

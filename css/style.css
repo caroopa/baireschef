@@ -1031,6 +1031,10 @@ input {
   max-width: 800px;
 }
 
+.gracias p {
+  font-size: 1.5rem;
+}
+
 #pagar {
   height: 100vh;
   background-image: url(/img/fondo4.png);

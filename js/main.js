@@ -1,9 +1,9 @@
-const verMas = document.querySelector(".ver-mas");
-verMas.addEventListener("click", () => {
-  window.location.href = "productos.php";
-});
+// const verMas = document.querySelector(".ver-mas");
+// verMas.addEventListener("click", () => {
+//   window.location.href = "productos.php";
+// });
 
-// **********************
+// // **********************
 
 const menu = document.querySelector(".barra");
 const container = document.querySelector(".items-container");

@@ -73,6 +73,7 @@
 
       <div class="gracias">
         <h1>¡Gracias por tu pedido!</h1>
+        <p>Total a pagar (subtotal + envío): $ <?php echo $_SESSION["sesion"]["total"]; ?></p>
         <p>Ahora, podés proceder a pagar con mercado pago.</p>
         <br>
         <div class="checkout-btn"></div>
