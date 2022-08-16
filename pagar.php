@@ -75,7 +75,9 @@
         <h1>¡Gracias por tu pedido!</h1>
         <p>Total a pagar (subtotal + envío): $ <?php echo $_SESSION["sesion"]["total"]; ?></p>
         <p>Ahora, podés proceder a pagar con mercado pago.</p>
+        <p>Si deseas hacerlo por transferencia o en efectivo, comunicate al Whatsapp.</p>
         <br>
+        <button class="wsp-btn">Whatsapp</button>
         <div class="checkout-btn"></div>
       </div>
 
@@ -97,6 +99,11 @@
       },
     });
   </script>
+    <script>
+      const wspBtn = document.querySelector(".wsp-btn");
+      wspBtn.addEventListener("click", () => {
+        window.location.href = "wsp-success.php";
+      });</script>
 		<script src="js/main.js"></script>
 	</body>
 </html>

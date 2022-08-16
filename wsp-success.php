@@ -1,9 +1,5 @@
 <?php
 	session_start();
-
-	$detalle = $_GET["payment_id"];
-	$_SESSION["sesion"]["detalle"] = $detalle;
-
 	include("config/db.php");
 	
 	$nombre = $_SESSION["sesion"]["nombre"];
@@ -13,7 +9,7 @@
 
 	if ($nombre != "" and $productos != "" and $telefono != "" and $direccion != "") {
 		$sentenciaSQL = $conexion -> prepare("INSERT INTO compras (id, nombre, productos, direccion, telefono, detalle, efectivo) 
-		VALUES (NULL, '$nombre', '$productos', '$direccion', '$telefono', '$detalle', 'No');");
+		VALUES (NULL, '$nombre', '$productos', '$direccion', '$telefono', '0', 'Sí');");
 		$sentenciaSQL -> execute();
 
 		include("config/mail.php");
@@ -36,6 +32,6 @@
 <?php	
 	session_unset();
 	session_destroy();
-	echo "<script>window.location.href='index.php';</script>";
+	echo "<script>window.location.href='https://api.whatsapp.com/send?phone=5491127276893';</script>";
 	die();
 ?>

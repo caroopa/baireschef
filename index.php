@@ -206,9 +206,14 @@
           </div>
         </div>
       </footer>
-
     </section>
 
+    <script>
+      const verMas = document.querySelector(".ver-mas");
+      verMas.addEventListener("click", () => {
+        window.location.href = "productos.php";
+      });
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

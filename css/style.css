@@ -359,6 +359,7 @@ h1 {
 
 .img-producto {
   width: 300px;
+  height: 200px;
 }
 
 .producto {
@@ -836,6 +837,10 @@ footer {
   color: black;
 }
 
+.table-row:hover {
+  background-color: #aaaaaa;
+}
+
 .table-data,
 .header__item {
   flex: 1 1 20%;
@@ -845,6 +850,10 @@ footer {
 .table-row:nth-of-type(odd) {
   background-color: #eeeeee;
   color: black;
+}
+
+.table-row:nth-of-type(odd):hover {
+  background-color: #aaaaaa;
 }
 
 .table-header,
@@ -887,6 +896,22 @@ select {
   height: 30px;
 }
 
+.sin-stock {
+  font-family: "Roboto", sans-serif;
+  width: 100px;
+  border-radius: 2rem;
+  border: none;
+  background-color: darkred;
+  color: white;
+  height: 30px;
+}
+
+.sin-stock:active {
+  background-color: darkred;
+  box-shadow: none;
+  transform: translateY(0px);
+}
+
 @media screen and (max-width: 900px) {
   select {
     width: 100px;
@@ -901,7 +926,7 @@ select {
   }
 }
 
-/* ****** */
+/* ***** DIRECCION ***** */
 
 #direccion {
   background-image: url(/img/fondo4.png);
@@ -912,11 +937,11 @@ select {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  background-image: url(/img/fondo5.png);
-  background-size: cover;
+  background-color: rgba(65, 80, 110, 0.8);
   padding: 2rem;
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  border-radius: 50px;
 }
 
 .form-direccion {
@@ -1031,8 +1056,24 @@ input {
   max-width: 800px;
 }
 
+.gracias h1 {
+  font-family: "Dancing Script", cursive;
+}
+
 .gracias p {
   font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.wsp-btn {
+  background-color: #0df053;
+  color: white;
+  width: 145px;
+  height: 40px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.9rem;
 }
 
 #pagar {
@@ -1041,7 +1082,7 @@ input {
   background-size: cover;
 }
 
-/* ***** DETALLE ****** */
+/* ***** DETALLE ***** */
 
 #detalle {
   background-image: url(/img/fondo1.png);

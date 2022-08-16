@@ -11,11 +11,11 @@
 	$sentenciaSQL -> execute();	
 	$listaProductos = $sentenciaSQL -> fetchALL(PDO::FETCH_ASSOC);
 
-  $sentencia = $conexion -> prepare("SELECT * FROM productos WHERE id_categoria=4");
+  $sentencia = $conexion -> prepare("SELECT * FROM productos WHERE id_categoria=4 AND activo=1");
   $sentencia -> execute();
   $listaGuarniciones = $sentencia -> fetchALL(PDO::FETCH_ASSOC);
 
-	$sentencia1 = $conexion -> prepare("SELECT * FROM productos WHERE id_categoria=6");
+	$sentencia1 = $conexion -> prepare("SELECT * FROM productos WHERE id_categoria=6 AND activo=1");
   $sentencia1 -> execute();
   $listaSalsas = $sentencia1 -> fetchALL(PDO::FETCH_ASSOC);
 ?>
@@ -97,14 +97,14 @@
 					<div class="table-data">
 						<?php if($producto["id_categoria"] == 1 || $producto["id_categoria"] == 2) { ?>
 							<select class="select-guarnicion" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
-								<option selected disabled="disabled">Elije</option>
+								<option value="" selected disabled="disabled">Elije</option>
               <?php foreach($listaGuarniciones as $guarnicion) { ?>
 								<option value="<?php echo $guarnicion["precio"]; ?>"><?php echo $guarnicion["nombre"]; ?></option>
               <?php } ?>
 							</select>
 						<?php } else if($producto["id_categoria"] == 3){ ?>
 							<select class="select-guarnicion" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
-								<option selected disabled="disabled">Elije</option>
+								<option value="" selected disabled="disabled">Elije</option>
 							<?php foreach($listaSalsas as $salsa) { ?>
 								<option value="<?php echo $salsa["precio"]; ?>"><?php echo $salsa["nombre"]; ?></option>
               <?php } ?>
@@ -112,9 +112,15 @@
 						<?php } ?>
 					</div>
 					<div class="table-data" id="<?php echo $producto['id']; ?>" data-precio = "<?php echo $producto['precio']; ?>"><?php echo $producto['precio']; ?></div>
-					<div class="table-data"><button class="sumar" 
+					<div class="table-data"> 
+					<?php if ($producto["activo"] == 1) { ?>
+						<button class="sumar"
 						onclick="add('<?php echo $producto['id']; ?>', '<?php echo $producto['nombre']; ?>', '<?php echo $producto['precio']; ?>', '<?php echo $producto['imagen']; ?>', '<?php echo $producto['id_categoria']; ?>')">
-						SUMAR</button></div>
+						SUMAR</button>
+					<?php } else { ?>
+						<button class="sin-stock" disabled>SIN STOCK</button>
+					<?php } ?>
+					</div>
 				</div>
 				<?php } ?>
 				</div>

@@ -1,10 +1,3 @@
-// const verMas = document.querySelector(".ver-mas");
-// verMas.addEventListener("click", () => {
-//   window.location.href = "productos.php";
-// });
-
-// // **********************
-
 const menu = document.querySelector(".barra");
 const container = document.querySelector(".items-container");
 
@@ -110,9 +103,9 @@ function add(id, product, price, img, categ) {
       nuevoObjeto.categoria === 3)
   ) {
     if (nuevoObjeto.categoria === 1 || nuevoObjeto.categoria === 2) {
-      alert("Debes elegir una guarnición.");
+      alert("Debés elegir una guarnición.");
     } else {
-      alert("Debes elegir una salsa.");
+      alert("Debés elegir una salsa.");
     }
     return;
   }

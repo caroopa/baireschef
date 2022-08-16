@@ -82,12 +82,12 @@
 							</div>
 							<div class="container-2">
 								<label for="">Calle</label>
-								<input type="text" name="calle" />
+								<input type="text" name="calle" required/>
 							</div>
 							<div class="container-input">
 								<div class="container-2">
 									<label for="">Número</label>
-									<input type="text" name="numero" />
+									<input type="text" name="numero" required/>
 								</div>
 								<div class="container-2">
 									<label for="">Dpto./Piso</label>
@@ -111,10 +111,6 @@
 								<option value="">3 de Febrero</option>
 								<option value="">San Martín</option>
 							</select> -->
-							<div class="container-2">
-								<label for="">Entre calles</label>
-								<input type="text" name="calles" />
-							</div>
 							<input type="hidden" name="localidadNombre" id="caja-localidad" value="">
 							<button
 								type="submit"
@@ -147,6 +143,19 @@
 					<div class="lista-carrito"></div>
 				</div>
 			</div>
+
+			<footer>
+				<img src="img/logo.png" alt="" class="logo2">
+				<div class="v-line"></div>
+				<div class="footer-container">
+					<img src="img/iconos.png" alt="" class="iconos">
+					<div class="nombres">
+						<p>baireschefok@gmail.com</p>
+						<p>+549112727-6893</p>
+						<a href="https://www.instagram.com/baireschefok/"><p>BairesChefOK</p></a>
+					</div>
+				</div>
+			</footer>
 		</section>	
 
 		<script src="js/main1.js"></script>
