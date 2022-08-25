@@ -232,28 +232,3 @@ function sumarTotal() {
 //     total
 //   ).toFixed(2)}`;
 // }
-
-// ***************************
-
-window.addEventListener("load", () => pintarHTML2());
-const listaCarrito = document.querySelector(".lista-carrito");
-
-function pintarHTML2() {
-  recuperarLocalStorage();
-  listaCarrito.innerHTML = products
-    .map((product) => {
-      return `
-      <div class="item">
-        <div class="textos">
-          <p>${product.nombre}</p>
-          <p>Cantidad: ${product.count}</p>
-          <p class="guarnicion">Guarnición:</p>
-          <p class="guarnicion2">${product.guarnicion}</p>
-          <p class="precio">${
-            (product.precio + product.guarnicionPrecio) * product.count
-          }</p>
-        </div>
-     </div>`;
-    })
-    .join("");
-}

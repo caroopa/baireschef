@@ -9,7 +9,7 @@
 
 	if ($nombre != "" and $productos != "" and $telefono != "" and $direccion != "") {
 		$sentenciaSQL = $conexion -> prepare("INSERT INTO compras (id, nombre, productos, direccion, telefono, detalle, efectivo) 
-		VALUES (NULL, '$nombre', '$productos', '$direccion', '$telefono', '0', 'Sí');");
+		VALUES (NULL, '$nombre', '$productos', '$direccion', '$telefono', '0', 'Si');");
 		$sentenciaSQL -> execute();
 
 		include("config/mail.php");

@@ -13,13 +13,13 @@ let productos = [];
 
 function recuperarLocalStorage() {
   if (localStorage.getItem("productos")) {
-    products = JSON.parse(localStorage.getItem("productos"));
+    productos = JSON.parse(localStorage.getItem("productos"));
   }
 }
 
 function pintarHTML() {
   recuperarLocalStorage();
-  listaCarrito.innerHTML = products
+  listaCarrito.innerHTML = productos
     .map((product) => {
       return `
 		<div class="item2">
@@ -39,7 +39,9 @@ function pintarHTML() {
 }
 
 const precio = document.getElementById("mostrarPrecio");
-function mostrarPrecio(valor, nombre) {
+const total = document.getElementById("total");
+function mostrarPrecio(valor, nombre, subtotal) {
   precio.innerHTML = `El precio del envío es de $${valor}`;
   document.getElementById("caja-localidad").value = nombre;
+  total.innerHTML = `$${parseFloat(valor) + parseFloat(subtotal)}`;
 }

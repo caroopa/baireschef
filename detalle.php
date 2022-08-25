@@ -76,6 +76,7 @@
 			<img src="img/productos/<?php echo $imagen; ?>" alt="Hola" class="img-detalle">
 			<div class="textos-detalle">
 				<h1><?php echo $nombre; ?></h1>
+        <h2>$<?php echo $precio; ?></h2>
 				<p><?php echo $descripcion; ?></p>
 				<h2>Valor nutricional:</h2>
 				<p><?php echo $valorNutricional; ?></p>

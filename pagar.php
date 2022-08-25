@@ -81,6 +81,18 @@
         <div class="checkout-btn"></div>
       </div>
 
+      <footer>
+				<img src="img/logo.png" alt="" class="logo2">
+				<div class="v-line"></div>
+				<div class="footer-container">
+					<img src="img/iconos.png" alt="" class="iconos">
+					<div class="nombres">
+						<p>baireschefok@gmail.com</p>
+						<p>+549112727-6893</p>
+						<a href="https://www.instagram.com/baireschefok/"><p>BairesChefOK</p></a>
+					</div>
+				</div>
+			</footer>
     </section>
 		<script>
     // *-------------------MERCADO PAGO-------------------

@@ -16,6 +16,11 @@
 			$_SESSION["sesion"]["total"] -= $_SESSION["sesion"]["total"] * $descuento;
 			$mensaje = "Cupón aceptado, se ha descontado " . $descuento*100 . "%.";
 		}
+		else if($_POST["cupon"] == "BAIRES01") {
+			$descuento = 0.3;
+			$_SESSION["sesion"]["total"] -= $_SESSION["sesion"]["total"] * $descuento;
+			$mensaje = "Cupón aceptado, se ha descontado " . $descuento*100 . "%.";
+		}
 		else {
 			$mensaje = "Cupón inválido";
 		}
@@ -97,13 +102,14 @@
 							<div class="container-2">
 								<label for="">Localidad</label>
 								<select name="localidad" id="localidad" required
-									onchange="mostrarPrecio(this.options[this.selectedIndex].value, this.options[this.selectedIndex].text)">
+									onchange="mostrarPrecio(this.options[this.selectedIndex].value, this.options[this.selectedIndex].text, '<?php echo $_SESSION['sesion']['total']; ?>')">
 									<option value="" selected disabled>Elije</option>
 									<?php foreach($listaLocalidades as $localidad) { ?>
 										<option value="<?php echo $localidad["precio"]; ?>"><?php echo $localidad["nombre"]; ?></option>
 									<?php	} ?>
 								</select>
 								<p id="mostrarPrecio"></p>
+								<p>Por otras localidades poner "Otro" y consultar con el vendedor.</p>
 							</div>
 							<!-- <label for="partido">Partido</label>
 							<select name="" for="partido" name="partido" class="partido">
@@ -120,6 +126,7 @@
 								Continuar
 							</button>
 						</form>
+						<p class="programados">Los envíos son programados los viernes (zona Norte y Oeste) y sábados (CABA y zona Sur).</p>
 					</div>
 				</div>
 
@@ -138,10 +145,18 @@
 							echo $mensaje;
 						} ?></p>
 					</div>
-					
-					<h2 class="titulo-direccion">Productos</h2>
-					<div class="lista-carrito"></div>
+					<div class="recuadro-total">
+						<h2>Total</h2>
+						<h1 id="total"></h1>
+					</div>					
 				</div>
+
+			<div class="productos">
+				<h2 class="titulo-direccion">Productos</h2>
+					<div class="lista-carrito"></div>
+			</div>
+
+
 			</div>
 
 			<footer>
@@ -157,7 +172,7 @@
 				</div>
 			</footer>
 		</section>	
-
+		
 		<script src="js/main1.js"></script>
 	</body>
 </html>

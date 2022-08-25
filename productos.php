@@ -107,6 +107,7 @@
             <div class="producto">
               <img src="img/productos/<?php echo $producto["imagen"]; ?>" alt="" class="img-producto">
               <p><?php echo $producto['nombre']; ?></p>
+              <p>$<?php echo $producto['precio']; ?></p>
               <?php if($producto["id_categoria"] == "1" or $producto["id_categoria"] == "2") { ?>
                 <p class="italic">guarnición a elección</p>
               <?php } else if($producto["id_categoria"] == "3") { ?>

@@ -31,7 +31,7 @@ try {
 
 	//Recipients
 	$mail->setFrom('info@baireschef.com', 'BairesChef');
-	$mail->addAddress('baireschefok@gmail.com', 'Baires Chef');     //Add a recipient
+	$mail->addAddress('melasudacompletamente@gmail.com', 'Joe User');     //Add a recipient
 
 	//Content
 	$mail->isHTML(true);                                  //Set email format to HTML
