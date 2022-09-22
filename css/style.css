@@ -170,6 +170,7 @@ header {
   font-size: 4rem;
   color: red;
   text-shadow: 1px 1px 1px black;
+  font-weight: bolder;
 }
 
 .titulos h3::after {
@@ -314,9 +315,17 @@ h1 {
   margin-left: 5rem;
 }
 
+.paquetes:hover {
+  transform: rotate(-15deg);
+}
+
 .packs-container {
   display: flex;
   flex-direction: column;
+}
+
+.packs-container h1 {
+  font-weight: 100;
 }
 
 .btn-packs {
@@ -396,14 +405,14 @@ h1 {
 
 @media screen and (max-width: 500px) {
   .producto {
-    width: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .img-producto {
-    width: 100px;
+    width: 280px;
   }
 
   .btn-seleccionar {
@@ -912,6 +921,52 @@ select {
   transform: translateY(0px);
 }
 
+.notificacion {
+  display: none;
+  background-color: rgb(148, 208, 163);
+  height: 50px;
+  width: 330px;
+  /* margin: 5rem auto; */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.btn-cerrar-noti {
+  background-color: green;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+
+.show-noti {
+  animation: warning 400ms ease-in-out forwards;
+  display: flex;
+}
+
+@keyframes warning {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 5rem;
+  }
+}
+
 @media screen and (max-width: 900px) {
   select {
     width: 100px;
@@ -921,7 +976,7 @@ select {
 @media screen and (max-width: 650px) {
   .table-row,
   .table-header {
-    flex-direction: column;
+    /* flex-direction: column; */
     height: 200px;
   }
 }
@@ -1125,6 +1180,7 @@ input {
 .img-detalle {
   width: 500px;
   height: 100%;
+  border-radius: 50px;
 }
 
 .textos-detalle {
@@ -1136,17 +1192,49 @@ input {
   padding: 2rem;
 }
 
-.textos-detalle h1 {
+.textos-detalle h1,
+.modo-preparacion h2,
+.valor-nutricional h2 {
   font-family: "Dancing Script", cursive;
   font-style: oblique;
   text-align: center;
 }
 
-.textos-detalle p {
+.textos-detalle p,
+.modo-preparacion p {
   text-align: right;
   margin-bottom: 3rem;
   margin-top: 3rem;
   font-size: 1.5rem;
+}
+
+.valor-nutricional {
+  margin: 2rem auto;
+  max-width: 600px;
+  background-color: rgba(65, 80, 110, 0.8);
+  padding: 2rem;
+  border-radius: 50px;
+}
+
+.valor-nutricional h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.valor-nutricional p {
+  text-align: center;
+}
+
+.btn-pedido {
+  margin: 2rem auto;
+  height: 50px;
+  width: 200px;
+  font-size: larger;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(65, 80, 110, 0.8);
+  color: white;
+  box-shadow: 0 0 20px white;
 }
 
 @media screen and (max-width: 1200px) {

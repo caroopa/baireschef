@@ -83,32 +83,6 @@
 
     <section id="seccionarda">
 
-      <div class="instrucciones">
-        <h1>Instrucciones</h1>
-        <div class="instrucciones-container">
-          <div class="card">
-            <img src="img/instrucciones1.png" alt="" class="instrucciones-img">
-            <p>Abrí el paquete y retirá <br> la bolsa interior</p>
-          </div>
-          <div class="card">
-            <img src="img/instrucciones2.png" alt="" class="instrucciones-img">
-            <p>Introducí la bolsa en agua <br> hirviendo y esperá el tiempo <br> indicado en la etiqueta <br>del producto</p>
-          </div>
-          <div class="card">
-            <img src="img/instrucciones3.png" alt="" class="instrucciones-img">
-            <p>Retirá la bolsa del hervor, <br> serví el contenido y disfrutá <br> una rica comida casera.
-          </div>
-        </div>
-      </div>
-
-      <div class="packs">
-        <div class="packs-container">
-          <h1>¡Resolvé tu semana <br> con nosotros!</h1>
-          <button class="btn-packs">Conocé nuestros packs</button>
-        </div>
-        <img src="img/paquetes.png" alt="" class="paquetes">
-      </div>
-
       <div class="main">
         <div class="producto">
           <img src="img/productos/lomo.png" alt="" class="img-producto">
@@ -127,6 +101,32 @@
           <p>Pollo al champiñón</p>
           <p class="italic">guarnición a elección</p>
           <!-- <button class="btn-seleccionar" onclick="abrirModal(3);">Seleccionar</button>  -->
+        </div>
+      </div>
+
+      <div class="packs">
+        <div class="packs-container">
+          <h1>¡Resolvé tu semana <br> con nosotros!</h1>
+          <button class="btn-packs">Conocé nuestros packs</button>
+        </div>
+        <img src="img/paquetes.png" alt="" class="paquetes">
+      </div>
+
+      <div class="instrucciones">
+        <h1>Instrucciones</h1>
+        <div class="instrucciones-container">
+          <div class="card">
+            <img src="img/instrucciones1.png" alt="" class="instrucciones-img">
+            <p>Abrí el paquete y retirá <br> la bolsa interior</p>
+          </div>
+          <div class="card">
+            <img src="img/instrucciones2.png" alt="" class="instrucciones-img">
+            <p>Introducí la bolsa en agua <br> hirviendo y esperá el tiempo <br> indicado en la etiqueta <br>del producto</p>
+          </div>
+          <div class="card">
+            <img src="img/instrucciones3.png" alt="" class="instrucciones-img">
+            <p>Retirá la bolsa del hervor, <br> serví el contenido y disfrutá <br> una rica comida casera.
+          </div>
         </div>
       </div>
 
@@ -206,14 +206,9 @@
           </div>
         </div>
       </footer>
+
     </section>
 
-    <script>
-      const verMas = document.querySelector(".ver-mas");
-      verMas.addEventListener("click", () => {
-        window.location.href = "productos.php";
-      });
-    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

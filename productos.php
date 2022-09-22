@@ -7,7 +7,7 @@
   }
   
   if($filtro == "0") {
-    $sentenciaSQL = $conexion -> prepare("SELECT * FROM productos ORDER BY nombre ASC ");
+    $sentenciaSQL = $conexion -> prepare("SELECT * FROM productos ORDER BY id_categoria ASC ");
     $sentenciaSQL -> execute();
     $listaProductos = $sentenciaSQL -> fetchALL(PDO::FETCH_ASSOC);
   }
@@ -81,27 +81,30 @@
       </nav>
 
 			<div class="productos-container">
-				<!-- <div class="filtro">
-					<p class="subrayado"><u>Recomendados</u></p>
+				<div class="filtro">
+					<p class="subrayado"><u>Filtros</u></p>
           <form action="productos.php" method="POST">
             <button type="submit" name="btn-filtro" value="0" class="btn-filtro">Todo</button>
           </form>
 					<form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="1" class="btn-filtro">Carne</button>
+            <button type="submit" name="btn-filtro" value="1" class="btn-filtro">Carnes</button>
           </form>
 					<form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="2" class="btn-filtro">Pollo</button>
+            <button type="submit" name="btn-filtro" value="2" class="btn-filtro">Pollos</button>
           </form>
           <form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="3" class="btn-filtro">Pasta</button>
+            <button type="submit" name="btn-filtro" value="3" class="btn-filtro">Pastas</button>
           </form>
 					<form action="productos.php" method="POST">
             <button type="submit" name="btn-filtro" value="5" class="btn-filtro">Guisos</button>
           </form>
 					<form action="productos.php" method="POST">
-            <button type="submit" name="btn-filtro" value="4" class="btn-filtro">Guarnición</button>
+            <button type="submit" name="btn-filtro" value="4" class="btn-filtro">Guarniciones</button>
           </form>
-				</div> -->
+          <form action="productos.php" method="POST">
+            <button type="submit" name="btn-filtro" value="6" class="btn-filtro">Salsas</button>
+          </form>
+				</div>
 				<div class="main separacion">
 				<?php foreach($listaProductos as $producto) { ?>
             <div class="producto">

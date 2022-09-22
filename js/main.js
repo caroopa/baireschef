@@ -1,3 +1,9 @@
+let products = [];
+const containerCarrito = document.querySelector(".container-carrito");
+recuperarLocalStorage();
+
+// **********************
+
 const menu = document.querySelector(".barra");
 const container = document.querySelector(".items-container");
 
@@ -57,9 +63,12 @@ function hola(valor, id, precio) {
 
 // *******************
 
-let products = [];
+const notificacion = document.querySelector(".notificacion");
+const btnCerrarNoti = document.querySelector(".btn-cerrar-noti");
 
-recuperarLocalStorage();
+btnCerrarNoti.addEventListener("click", () => {
+  notificacion.classList.remove("show-noti");
+});
 
 function add(id, product, price, img, categ) {
   let guarnicion = "";
@@ -80,7 +89,6 @@ function add(id, product, price, img, categ) {
       sendLocalStorage();
       sumarCantidad();
       pintarHTML();
-      // sumar();
       return;
     }
   }
@@ -110,11 +118,11 @@ function add(id, product, price, img, categ) {
     return;
   }
 
+  notificacion.classList.add("show-noti");
   products.push(nuevoObjeto);
   sendLocalStorage();
   sumarCantidad();
   pintarHTML();
-  // sumar();
 }
 
 function sumarCantidad() {
@@ -130,21 +138,18 @@ function sendLocalStorage() {
 }
 
 function recuperarLocalStorage() {
+  console.log("hola");
   document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("productos")) {
       products = JSON.parse(localStorage.getItem("productos"));
       pintarHTML();
       sumarCantidad();
-      // sumar();
     }
   });
 }
 
-window.addEventListener("load", () => pintarHTML());
-const containerCarrito = document.querySelector(".container-carrito");
-
 function pintarHTML() {
-  recuperarLocalStorage();
+  // recuperarLocalStorage();
   sumarTotal();
 
   containerCarrito.innerHTML = products
@@ -215,20 +220,3 @@ function sumarTotal() {
   document.getElementById("caja-productos").value = productos;
   return total;
 }
-
-// function sumar() {
-//   let total = 0;
-
-//   for (let item in products) {
-//     if (products[item].guarnicion === "") {
-//       total += products[item].precio * products[item].count;
-//     } else {
-//       total +=
-//         (products[item].precio + products[item].guarnicionPrecio) *
-//         products[item].count;
-//     }
-//   }
-//   document.querySelector(".total-p").innerHTML = `Total: $${parseFloat(
-//     total
-//   ).toFixed(2)}`;
-// }

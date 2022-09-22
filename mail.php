@@ -31,13 +31,13 @@ try {
 
 	//Recipients
 	$mail->setFrom('info@baireschef.com', 'BairesChef');
-	$mail->addAddress('melasudacompletamente@gmail.com', 'Joe User');     //Add a recipient
+	$mail->addAddress('baireschefok@gmail.com', 'Baires Chef');     //Add a recipient
 
 	//Content
 	$mail->isHTML(true);                                  //Set email format to HTML
 	$mail->Subject = 'Detalles de venta';
 	foreach($compras as $compra) {
-		$body = "Número de compra: " . $compra["id"] . "<br>" . $compra["nombre"].' ha comprado '. $compra["productos"] . "<br> La dirección es: " . $compra["direccion"] . ".<br>Su teléfono es: " . $compra["telefono"];;
+		$body = "Número de compra: " . $compra["id"] . "<br>" . $compra["nombre"].' ha comprado '. $compra["productos"] . "<br> La dirección es: " . $compra["direccion"] . ".<br>Su teléfono es: " . $compra["telefono"] . ".<br>Su mail es: " . $compra["mail"];
 		if($compra["detalle"] != 0) {
 			$mail->Body = $body . "<br>El código de venta es: " . $compra["detalle"];
 		}

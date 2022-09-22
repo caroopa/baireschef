@@ -6,11 +6,13 @@
     $nombre = $_POST["nombre"] ." ". $_POST["apellido"];
     $direccion = $_POST["calle"] . " " . $_POST["numero"]. " ".$_POST["piso"]. " (".$_POST["localidadNombre"] .")";
     $telefono = $_POST["telefono"];
+    $mail = $_POST["mail"];
 
     $_SESSION["sesion"]["nombre"] = $nombre;
     $_SESSION["sesion"]["direccion"] = $direccion;
     $_SESSION["sesion"]["telefono"] = $telefono;
     $_SESSION["sesion"]["total"] += $_REQUEST["localidad"];
+    $_SESSION["sesion"]["mail"] = $mail;
   }
 ?>
 

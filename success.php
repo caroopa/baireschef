@@ -10,10 +10,11 @@
 	$productos = $_SESSION["sesion"]["productos"];
 	$direccion = $_SESSION["sesion"]["direccion"];
 	$telefono = $_SESSION["sesion"]["telefono"];
+	$mail = $_SESSION["sesion"]["mail"];
 
-	if ($nombre != "" and $productos != "" and $telefono != "" and $direccion != "") {
-		$sentenciaSQL = $conexion -> prepare("INSERT INTO compras (id, nombre, productos, direccion, telefono, detalle, efectivo) 
-		VALUES (NULL, '$nombre', '$productos', '$direccion', '$telefono', '$detalle', 'No');");
+	if ($nombre != "" and $productos != "" and $telefono != "" and $mail != "") {
+		$sentenciaSQL = $conexion -> prepare("INSERT INTO compras (id, nombre, productos, direccion, telefono, detalle, efectivo, mail) 
+		VALUES (NULL, '$nombre', '$productos', '$direccion', '$telefono', '$detalle', 'No', '$mail');");
 		$sentenciaSQL -> execute();
 
 		include("config/mail.php");

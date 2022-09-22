@@ -86,6 +86,10 @@
 								<input type="text" name="telefono" required/>
 							</div>
 							<div class="container-2">
+								<label for="">Mail</label>
+								<input type="text" name="mail" required/>
+							</div>
+							<div class="container-2">
 								<label for="">Calle</label>
 								<input type="text" name="calle" required/>
 							</div>

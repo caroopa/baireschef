@@ -82,6 +82,14 @@
 		<!-- <p id="obligatorio">Para las proteínas es obligatorio el agregado de una guarnición, y para las pastas una salsa.
 		</p> -->
 
+		<div class="notificacion">
+			<i class="fa-solid fa-circle-check"></i>
+			<p>El producto ha sido agregado.</p>
+			<div class="btn-cerrar-noti">
+				<i class="fa-solid fa-circle-xmark"></i></>
+			</div>
+		</div>
+
 		<div class="table">
 			<div class="table-header">
 				<div class="header__item">Platos</div>

@@ -11,6 +11,7 @@
 		$descripcion = $row["descripcion"];
 		$imagen = $row["imagen"];
 		$valorNutricional = $row["valorNutricional"];
+    $categoria = $row["id_categoria"];
 	}
 ?>
 
@@ -71,17 +72,35 @@
         </ul>
       </nav>
 
-
 		<div class="detalle-container">
-			<img src="img/productos/<?php echo $imagen; ?>" alt="Hola" class="img-detalle">
+      <img src="img/productos/<?php echo $imagen; ?>" alt="Hola" class="img-detalle">
 			<div class="textos-detalle">
 				<h1><?php echo $nombre; ?></h1>
         <h2>$<?php echo $precio; ?></h2>
 				<p><?php echo $descripcion; ?></p>
-				<h2>Valor nutricional:</h2>
-				<p><?php echo $valorNutricional; ?></p>
+        <div class="modo-preparacion">
+          <h2>Modo de preparación</h2>
+          <?php if($categoria == "3") { ?>
+            <p>Retirar las pastas de la bolsa de vacío, cocinarlas en agua entre 4 a 6 minutos.</p>
+          <?php } else if($nombre == "Batatas al horno" || $nombre == "Papas a las finas hierbas") { ?>
+            <p>Precalentar el horno a máxima potencia por 15 min.
+              Introducir la placa al horno por 15 min, mover las papas para
+              que se despeguen unas de otras y calentar por 5 min más.
+              Retirar del horno y servir.
+            </p>
+          <?php } else { ?>
+            <p>Poner en agua junto a su bolsa de vacío el tiempo que indica la etiqueta.</p>
+          <?php } ?>
+        </div>
+        <a href="pedidos.php"><button class="btn-pedido">Hacé tu pedido</button></a>
 			</div>
-		</div>		
+    </div>
+    <div class="valor-nutricional">
+      <h2>Valor nutricional</h2>
+      <p>
+        <?php echo $valorNutricional; ?>
+      </p>
+    </div>
 
 		<footer>
 			<img src="img/logo.png" alt="" class="logo2">
