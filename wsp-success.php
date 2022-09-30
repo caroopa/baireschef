@@ -26,7 +26,6 @@
 	<title>Document</title>
 </head>
 <body>
-	<script>localStorage.removeItem("productos");</script>
 </body>
 </html>
 
