@@ -49,12 +49,12 @@
     <header>
       <nav>
         <ul>
-          <li><a href="index.php"><img src="img/logo.png" alt="" class="logo" /></li></a>
+          <li class="logo-container"><a href="index.php"><img src="img/logo.png" alt="" class="logo" /></li></a>
           <div class="items-container">
             <li><a href="productos.php">Nuestros Platos</a></li>
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
-            <li>Packs</li>
-            <li>Conocenos</li>
+            <!-- <li>Packs</li>
+            <li>Conocenos</li> -->
           </div>
           <i class="fa-solid fa-bars barra"></i>
           <div class="cart-container">
@@ -63,6 +63,15 @@
           </div>
         </ul>
       </nav>
+
+      <!-- <div class="notificacion-roja">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>Envíos programados <br> viernes y sábados.</p>
+        <div class="btn-cerrar-noti-roja">
+          <i class="fa-solid fa-circle-xmark"></i></>
+        </div>
+      </div> -->
+
       <div class="header-container">
         <div class="titulos">
           <h1>Deleitate en sólo</h1>
@@ -210,5 +219,21 @@
     </section>
 
     <script src="js/main.js"></script>
+    <script>
+      const notificacionRoja = document.querySelector(".notificacion-roja");
+      const btnCerrarNotiRoja = document.querySelector(".btn-cerrar-noti-roja");
+      
+      window.addEventListener("load", () => {
+        setTimeout(mostrarNoti, 2000);
+      });
+
+      function mostrarNoti() {
+        notificacionRoja.classList.add("show-noti");
+      }
+
+      btnCerrarNotiRoja.addEventListener("click", () => {
+        notificacionRoja.classList.remove("show-noti");
+      });
+    </script>
   </body>
 </html>

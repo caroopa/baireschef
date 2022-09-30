@@ -21,6 +21,10 @@
   $sentencia = $conexion -> prepare("SELECT * FROM productos WHERE id_categoria=4");
   $sentencia -> execute();
   $listaGuarniciones = $sentencia -> fetchALL(PDO::FETCH_ASSOC);
+
+	$sentencia1 = $conexion -> prepare("SELECT * FROM productos WHERE id_categoria=6 AND activo=1");
+  $sentencia1 -> execute();
+  $listaSalsas = $sentencia1 -> fetchALL(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +73,8 @@
           <div class="items-container">
             <li><a href="productos.php">Nuestros Platos</a></li>
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
-            <li>Packs</li>
-            <li>Conocenos</li>
+            <!-- <li>Packs</li>
+            <li>Conocenos</li> -->
           </div>
           <i class="fa-solid fa-bars barra"></i>
           <div class="cart-container">
@@ -79,6 +83,14 @@
           </div>
         </ul>
       </nav>
+
+      <div class="notificacion">
+        <i class="fa-solid fa-circle-check"></i>
+        <p>El producto ha sido agregado.</p>
+        <div class="btn-cerrar-noti">
+          <i class="fa-solid fa-circle-xmark"></i></>
+        </div>
+      </div>
 
 			<div class="productos-container">
 				<div class="filtro">
@@ -110,12 +122,40 @@
             <div class="producto">
               <img src="img/productos/<?php echo $producto["imagen"]; ?>" alt="" class="img-producto">
               <p><?php echo $producto['nombre']; ?></p>
-              <p>$<?php echo $producto['precio']; ?></p>
+              <p>$<?php echo $producto['precio_base']; ?></p>
               <?php if($producto["id_categoria"] == "1" or $producto["id_categoria"] == "2") { ?>
                 <p class="italic">guarnición a elección</p>
               <?php } else if($producto["id_categoria"] == "3") { ?>
                 <p class="italic">salsa a elección</p>
               <?php } ?>
+              <div class="agregar">
+                <?php if ($producto["activo"] == 1) {
+                  if ($producto['id_categoria'] != 4 and $producto['id_categoria'] != 6) { ?>
+                  <button class="btn-sumar"
+                  onclick="add('<?php echo $producto['id']; ?>', '<?php echo $producto['nombre']; ?>', '<?php echo $producto['precio']; ?>', '<?php echo $producto['imagen']; ?>', '<?php echo $producto['id_categoria']; ?>')">
+                  Sumar al carrito</button>
+                <?php }
+                  } else { ?>
+                  <button class="sin-stock" disabled>SIN STOCK</button>
+                <?php } ?>
+              </div>
+              <div class="guarniciones">
+                <?php if($producto["id_categoria"] == 1 || $producto["id_categoria"] == 2) { ?>
+                  <select class="select-guarnicion2" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
+                    <option value="" selected disabled="disabled">Elije</option>
+                  <?php foreach($listaGuarniciones as $guarnicion) { ?>
+                    <option value="<?php echo $guarnicion["precio"]; ?>"><?php echo $guarnicion["nombre"]; ?></option>
+                  <?php } ?>
+                  </select>
+                <?php } else if($producto["id_categoria"] == 3){ ?>
+                  <select class="select-guarnicion2" onchange="hola(this.options[this.selectedIndex].text, '<?php echo $producto['id']; ?>', this.options[this.selectedIndex].value)">
+                    <option value="" selected disabled="disabled">Elije</option>
+                  <?php foreach($listaSalsas as $salsa) { ?>
+                    <option value="<?php echo $salsa["precio"]; ?>"><?php echo $salsa["nombre"]; ?></option>
+                  <?php } ?>
+                  </select>
+                <?php } ?>
+              </div>
               <!-- <button class="btn-seleccionar" onclick="abrirModal(<?php echo $producto['id']; ?>)">Información</button>  -->
               <a href="detalle.php?id=<?php echo $producto["id"]; ?>"><button class="btn-seleccionar">Ver detalles</button></a>
             </div>

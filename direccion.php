@@ -57,8 +57,8 @@
 					<div class="items-container">
 						<li><a href="productos.php">Nuestros Platos</a></li>
 						<li><a href="pedidos.php">Hacé tu pedido</a></li>
-						<li>Packs</li>
-						<li>Conocenos</li>
+						<!-- <li>Packs</li>
+						<li>Conocenos</li> -->
 						<!-- <div class="cart-container">
 							<i class="fa-solid fa-cart-shopping cart"></i>
 						</div> -->
@@ -130,7 +130,6 @@
 								Continuar
 							</button>
 						</form>
-						<p class="programados">Los envíos son programados los viernes (zona Norte y Oeste) y sábados (CABA y zona Sur).</p>
 					</div>
 				</div>
 
@@ -152,7 +151,11 @@
 					<div class="recuadro-total">
 						<h2>Total</h2>
 						<h1 id="total"></h1>
-					</div>					
+					</div>
+					<div class="programados">
+						<p>Los envíos son programados los viernes (zona Norte y Oeste) y sábados (CABA y zona Sur).</p>
+					</div>
+
 				</div>
 
 			<div class="productos">

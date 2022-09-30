@@ -68,8 +68,8 @@
 				<div class="items-container">
 					<li><a href="productos.php">Nuestros Platos</a></li>
 					<li><a href="pedidos.php">Hacé tu pedido</a></li>
-					<li>Packs</li>
-					<li>Conocenos</li>
+					<!-- <li>Packs</li>
+					<li>Conocenos</li> -->
 				</div>
 				<i class="fa-solid fa-bars barra"></i>
 				<div class="cart-container">
@@ -86,7 +86,7 @@
 			<i class="fa-solid fa-circle-check"></i>
 			<p>El producto ha sido agregado.</p>
 			<div class="btn-cerrar-noti">
-				<i class="fa-solid fa-circle-xmark"></i></>
+				<i class="fa-solid fa-circle-xmark btn-cerrar"></i></>
 			</div>
 		</div>
 
@@ -119,7 +119,7 @@
 							</select>
 						<?php } ?>
 					</div>
-					<div class="table-data" id="<?php echo $producto['id']; ?>" data-precio = "<?php echo $producto['precio']; ?>"><?php echo $producto['precio']; ?></div>
+					<div class="table-data" id="<?php echo $producto['id']; ?>" data-precio = "<?php echo $producto['precio']; ?>"><?php echo $producto['precio_base']; ?></div>
 					<div class="table-data"> 
 					<?php if ($producto["activo"] == 1) { ?>
 						<button class="sumar"

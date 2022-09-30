@@ -6,7 +6,7 @@
 	$sentenciaSQL -> execute();
 	$producto = $sentenciaSQL -> fetchALL(PDO::FETCH_ASSOC);
 	foreach($producto as $row) {
-		$precio = $row["precio"];
+		$precio = $row["precio_base"];
 		$nombre = $row["nombre"];
 		$descripcion = $row["descripcion"];
 		$imagen = $row["imagen"];
@@ -61,8 +61,8 @@
           <div class="items-container">
             <li><a href="productos.php">Nuestros Platos</a></li>
             <li><a href="pedidos.php">Hacé tu pedido</a></li>
-            <li>Packs</li>
-            <li>Conocenos</li>
+            <!-- <li>Packs</li>
+            <li>Conocenos</li> -->
           </div>
           <i class="fa-solid fa-bars barra"></i>
           <div class="cart-container">

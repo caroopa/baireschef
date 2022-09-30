@@ -128,9 +128,9 @@ li {
     opacity: 1;
   }
 
-  /* .container-items {
-    display: none;
-  } */
+  .logo-container {
+    width: 30%;
+  }
 
   .items-container {
     flex-direction: column;
@@ -481,7 +481,7 @@ footer {
 
   .iconos {
     margin-left: 0;
-    width: 30px;
+    width: 50px;
     /* height: 20px; */
   }
 
@@ -654,6 +654,23 @@ footer {
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   color: white;
+}
+
+.btn-sumar,
+.select-guarnicion2 {
+  margin: 2rem 0 0 1.5rem;
+  height: 50px;
+  width: 250px;
+  font-size: larger;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(65, 80, 110, 0.8);
+  color: white;
+  box-shadow: 0 0 20px black;
+}
+
+.select-guarnicion2 {
+  padding: 0 1rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -989,8 +1006,16 @@ select {
 }
 
 .programados {
+  width: 300px;
+  background-color: red;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.programados p {
+  font-size: larger;
   text-align: center;
-  /* width: 400px; */
 }
 
 .container-direccion {
@@ -1197,6 +1222,10 @@ input {
 .valor-nutricional h2 {
   font-family: "Dancing Script", cursive;
   font-style: oblique;
+  text-align: center;
+}
+
+.textos-detalle h2 {
   text-align: center;
 }
 

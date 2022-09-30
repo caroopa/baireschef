@@ -138,7 +138,6 @@ function sendLocalStorage() {
 }
 
 function recuperarLocalStorage() {
-  console.log("hola");
   document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("productos")) {
       products = JSON.parse(localStorage.getItem("productos"));
